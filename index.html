@@ -908,7 +908,7 @@ footer {
 ============================================================ */
 .mask-section {
   position: relative;
-  min-height: 260vh;
+  min-height: 130vh;
   background: var(--black);
 }
 .mask-sticky {
@@ -982,124 +982,122 @@ footer {
 }
 
 /* ============================================================
-   MODULE 02 — STICKY STACK NARRATIVE
-   Visual stays pinned; story cards scroll past on the right
+   BRAND INTRO SECTION
 ============================================================ */
-.narrative-section {
-  background: var(--white);
+.brand-intro {
+  background: var(--off-white);
   border-top: 1px solid var(--border);
+  padding: 120px 0;
 }
-.narrative-wrap {
+.brand-intro-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 40px 120px;
+  padding: 0 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+  gap: 100px;
+  align-items: center;
 }
-.narrative-visual {
-  position: sticky;
-  top: 96px;
-  height: fit-content;
-}
-.narrative-panel {
+.brand-intro-image {
   position: relative;
-  overflow: hidden;
   aspect-ratio: 4 / 5;
-  background: var(--off-white);
-  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--dark);
 }
-/* Gold bar on active state */
-.narrative-panel::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px;
-  height: 0;
-  background: linear-gradient(180deg, var(--gold), var(--gold-light));
-  z-index: 10;
-  transition: height 0.6s ease;
-}
-.narrative-panel.bar-active::before { height: 100%; }
-.narrative-state {
+/* Placeholder image overlay */
+.brand-intro-image .img-ph {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transition: opacity 0.55s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
-.narrative-state.active { opacity: 1; }
-
-/* State captions shown inside the visual panel */
-.ns-caption {
+/* Subtle gold border accent */
+.brand-intro-image::after {
+  content: '';
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 28px 32px;
-  background: linear-gradient(0deg, rgba(17,17,17,0.75) 0%, transparent 100%);
+  inset: 16px;
+  border: 1px solid rgba(184,151,90,0.25);
+  pointer-events: none;
   z-index: 2;
 }
-.ns-caption .ns-label {
+.brand-intro-text {
+  padding: 8px 0;
+}
+.brand-intro-eyebrow {
   font-family: 'Jost', sans-serif;
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 4px;
   display: block;
+  margin-bottom: 24px;
 }
-.ns-caption .ns-title {
+.brand-intro-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1.08;
+  margin-bottom: 32px;
+}
+.brand-intro-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 32px;
+}
+.brand-intro-body {
+  font-size: 16px;
+  color: var(--body-text);
+  line-height: 1.9;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+.brand-intro-quote {
   font-family: 'Playfair Display', serif;
   font-style: italic;
+  font-size: 20px;
+  color: var(--gold);
+  line-height: 1.5;
+  padding-left: 24px;
+  border-left: 2px solid var(--gold);
+  margin-bottom: 48px;
+}
+.brand-intro-meta {
+  display: flex;
+  gap: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.brand-intro-stat { display: flex; flex-direction: column; gap: 6px; }
+.brand-intro-stat-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.brand-intro-stat-value {
+  font-family: 'Playfair Display', serif;
   font-size: 22px;
-  color: #fff;
+  color: var(--black);
+  line-height: 1;
 }
 
-/* Right side scrolling cards */
-.narrative-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-  padding: 40px 0;
+@media (max-width: 960px) {
+  .brand-intro { padding: 80px 0; }
+  .brand-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    padding: 0 28px;
+  }
+  .brand-intro-image { aspect-ratio: 16 / 9; }
+  .brand-intro-heading { font-size: 42px; }
 }
-.n-card {
-  padding: 36px 32px;
-  background: var(--off-white);
-  border: 1px solid var(--border);
-  opacity: 0.28;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-}
-.n-card.active {
-  opacity: 1;
-  transform: translateY(0);
-  border-color: var(--gold);
-  box-shadow: 0 0 0 1px var(--gold), 0 16px 40px rgba(184,151,90,0.12);
-}
-.n-card .n-num {
-  font-family: 'Jost', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: block;
-  margin-bottom: 14px;
-}
-.n-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  color: var(--black);
-  margin-bottom: 10px;
-}
-.n-card p {
-  font-size: 15px;
-  color: var(--body-text);
-  line-height: 1.85;
+@media (max-width: 620px) {
+  .brand-intro-inner { padding: 0 20px; }
+  .brand-intro-heading { font-size: 34px; }
+  .brand-intro-meta { flex-direction: column; gap: 24px; }
 }
 
 
@@ -1127,7 +1125,7 @@ footer {
   .newsletter-form { flex-direction: column; }
   .newsletter-form input { border-bottom: 1px solid var(--border); }
   .narrative-wrap { padding: 48px 20px 60px; gap: 32px; }
-  .mask-section { min-height: 200vh; }
+  .mask-section { min-height: 100vh; }
   .cta-band-inner { flex-direction: column; align-items: flex-start; }
   .cta-band-details { flex-direction: column; align-items: flex-start; gap: 24px; }
 }
@@ -1236,100 +1234,43 @@ footer {
 </header>
 
 <!-- ================================================
-  STICKY STACK NARRATIVE — Module 02
-  Visual panel pins left; story cards scroll right
+  BRAND INTRO
 ================================================ -->
-<section class="narrative-section" id="story">
-  <div class="narrative-wrap">
+<section class="brand-intro" id="story">
+  <div class="brand-intro-inner">
 
-    <!-- LEFT: sticky visual panel -->
-    <div class="narrative-visual">
-      <div class="narrative-panel" id="narrativePanel">
-
-        <!-- State 1: Wine pour photography -->
-        <div class="narrative-state active" data-state="1">
-          <div class="img-ph img-ph--dark" style="position:absolute;inset:0;">
-            <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="img-ph__label">Welcome Photography</span>
-            <span class="img-ph__file">welcome-wine-pour.jpg · 800 × 960px</span>
-          </div>
-          <div class="ns-caption">
-            <span class="ns-label">Our Story</span>
-            <span class="ns-title">Created from love.</span>
-          </div>
-        </div>
-
-        <!-- State 2: Vineyard / farm -->
-        <div class="narrative-state" data-state="2">
-          <div class="img-ph img-ph--warm" style="position:absolute;inset:0;">
-            <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="img-ph__label">Vineyard Photography</span>
-            <span class="img-ph__file">de-slange-rivier-vineyard.jpg · 800 × 960px</span>
-          </div>
-          <div class="ns-caption">
-            <span class="ns-label">The Farm</span>
-            <span class="ns-title">Est. 1699, Wellington.</span>
-          </div>
-        </div>
-
-        <!-- State 3: Wine club / hamper -->
-        <div class="narrative-state" data-state="3">
-          <div class="img-ph img-ph--light" style="position:absolute;inset:0;">
-            <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="img-ph__label">Wine Club Photography</span>
-            <span class="img-ph__file">wine-club-members.jpg · 800 × 960px</span>
-          </div>
-          <div class="ns-caption">
-            <span class="ns-label">The Club</span>
-            <span class="ns-title">Love at your doorstep.</span>
-          </div>
-        </div>
-
-        <!-- State 4: Food & experiences -->
-        <div class="narrative-state" data-state="4">
-          <div class="img-ph img-ph--dark" style="position:absolute;inset:0;">
-            <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="img-ph__label">Food Photography</span>
-            <span class="img-ph__file">lavo-food-pairing.jpg · 800 × 960px</span>
-          </div>
-          <div class="ns-caption">
-            <span class="ns-label">Food &amp; Experiences</span>
-            <span class="ns-title">Wine &amp; food, together.</span>
-          </div>
-        </div>
-
+    <!-- Image -->
+    <div class="brand-intro-image reveal">
+      <div class="img-ph img-ph--dark">
+        <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <span class="img-ph__label">Brand Photography</span>
+        <span class="img-ph__file">lavo-brand-story.jpg · 800 × 1000px</span>
       </div>
     </div>
 
-    <!-- RIGHT: scrolling story cards -->
-    <div class="narrative-cards">
-
-      <div class="n-card active" data-feature="1">
-        <span class="n-num">Welcome to Lavo Wines</span>
-        <h3>Created from love.</h3>
-        <p>Lavo wine originates from the name Lerato, a Southern African name which means love. Lavo Wines is about pleasure, enjoyment, and connecting people around the world — the one thread connecting people of different backgrounds to share congenial association over a glass of wine.</p>
-        <p style="margin-top:14px;font-style:italic;font-family:'Playfair Display',serif;color:var(--gold);font-size:17px;">Our wine has been created from love, to be enjoyed with love.</p>
+    <!-- Text -->
+    <div class="brand-intro-text">
+      <span class="brand-intro-eyebrow reveal">Welcome to Lavo Wines</span>
+      <h2 class="brand-intro-heading reveal d1">Created<br/>from love.</h2>
+      <div class="brand-intro-rule reveal d2"></div>
+      <p class="brand-intro-body reveal d2">Lavo wine originates from the name Lerato, a Southern African name which means love. Lavo Wines is about pleasure, enjoyment, and connecting people around the world — the one thread connecting people of different backgrounds to share congenial association over a glass of wine.</p>
+      <blockquote class="brand-intro-quote reveal d3">Our wine has been created from love,<br/>to be enjoyed with love.</blockquote>
+      <div class="brand-intro-meta reveal d3">
+        <div class="brand-intro-stat">
+          <span class="brand-intro-stat-label">Established</span>
+          <span class="brand-intro-stat-value">Est. 1699</span>
+        </div>
+        <div class="brand-intro-stat">
+          <span class="brand-intro-stat-label">Origin</span>
+          <span class="brand-intro-stat-value">Wellington, SA</span>
+        </div>
+        <div class="brand-intro-stat">
+          <span class="brand-intro-stat-label">Varietals</span>
+          <span class="brand-intro-stat-value">6 Wines</span>
+        </div>
       </div>
-
-      <div class="n-card" data-feature="2">
-        <span class="n-num">The Farm</span>
-        <h3>De Slange Rivier, Wellington.</h3>
-        <p>Our wines are produced in Wellington, South Africa, at a historic vineyard called De Slange Rivier — founded in 1699 by the French Huguenot Louis Fourie. More than three centuries of vine-growing heritage flows through every vintage we produce.</p>
-      </div>
-
-      <div class="n-card" data-feature="3">
-        <span class="n-num">The Club</span>
-        <h3>Join the wine club.</h3>
-        <p>Receive a monthly wine hamper delivered at your doorstep and enjoy exclusive access to our premium events. LAVO Wine Club members also enjoy tasting previews of all our new wine varieties — the first to taste everything we make.</p>
-      </div>
-
-      <div class="n-card" data-feature="4">
-        <span class="n-num">Food &amp; Experiences</span>
-        <h3>LAVO Food &amp; Experiences.</h3>
-        <p>We are always cooking up a storm, partnering with seasoned and new chefs to explore the best recipes for you to enjoy alongside our wines. Food and wine — the perfect love story, every time.</p>
-      </div>
-
     </div>
+
   </div>
 </section>
 
@@ -1393,7 +1334,7 @@ footer {
           <span class="wc-tag">Violet</span>
           <span class="wc-tag">Coffee</span>
         </div>
-        <a href="../Tasting notes/Lavo Wine Tasting Notes 2022 M.pdf" target="_blank" class="wc-link">Discover More &rarr;</a>
+        <a href="merlot.html" class="wc-link">Discover More &rarr;</a>
       </div>
     </article>
 
@@ -1415,7 +1356,7 @@ footer {
           <span class="wc-tag">Spice</span>
           <span class="wc-tag">Mint</span>
         </div>
-        <a href="../Tasting notes/Lavo Wine Tasting Notes 2022 CS.pdf" target="_blank" class="wc-link">Discover More &rarr;</a>
+        <a href="cabernet-sauvignon.html" class="wc-link">Discover More &rarr;</a>
       </div>
     </article>
 
@@ -1446,7 +1387,7 @@ footer {
           <span class="wc-tag">Watermelon</span>
           <span class="wc-tag">Buttery</span>
         </div>
-        <a href="../Tasting notes/Sparkling Brut.pdf" target="_blank" class="wc-link">Discover More &rarr;</a>
+        <a href="sparkling-brut.html" class="wc-link">Discover More &rarr;</a>
       </div>
     </article>
 
@@ -1468,7 +1409,7 @@ footer {
           <span class="wc-tag">Butterscotch</span>
           <span class="wc-tag">Citrus</span>
         </div>
-        <a href="../Tasting notes/Lavo Wine Tasting Notes 2022 C.pdf" target="_blank" class="wc-link">Discover More &rarr;</a>
+        <a href="chardonnay.html" class="wc-link">Discover More &rarr;</a>
       </div>
     </article>
 
@@ -1490,7 +1431,7 @@ footer {
           <span class="wc-tag">Fresh</span>
           <span class="wc-tag">Full-Bodied</span>
         </div>
-        <a href="../Tasting notes/Lavo Wine Tasting Notes 2022 SB.pdf" target="_blank" class="wc-link">Discover More &rarr;</a>
+        <a href="sauvignon-blanc.html" class="wc-link">Discover More &rarr;</a>
       </div>
     </article>
 
@@ -1512,7 +1453,7 @@ footer {
           <span class="wc-tag">Fresh</span>
           <span class="wc-tag">Crisp</span>
         </div>
-        <a href="../Tasting notes/Lavo Wine Tasting Notes 2022 CB.pdf" target="_blank" class="wc-link">Discover More &rarr;</a>
+        <a href="chenin-blanc.html" class="wc-link">Discover More &rarr;</a>
       </div>
     </article>
 
@@ -1651,28 +1592,7 @@ footer {
     }
   });
 
-  // ─── MODULE 02: STICKY STACK NARRATIVE ─────────────────────────
-  const nCards  = document.querySelectorAll('.n-card');
-  const nStates = document.querySelectorAll('.narrative-state');
-  const nPanel  = document.getElementById('narrativePanel');
-
-  function activateNarrative(num) {
-    nCards.forEach(c  => c.classList.toggle('active',  c.dataset.feature === num));
-    nStates.forEach(s => s.classList.toggle('active', s.dataset.state   === num));
-    if (nPanel) nPanel.classList.add('bar-active');
-  }
-
-  nCards.forEach(card => {
-    ScrollTrigger.create({
-      trigger: card,
-      start: 'top 62%',
-      end:   'bottom 38%',
-      onEnter:     () => activateNarrative(card.dataset.feature),
-      onEnterBack: () => activateNarrative(card.dataset.feature),
-    });
-  });
-
-  // ─── MODULE 16: SPOTLIGHT BORDER CARDS ─────────────────────────
+// ─── MODULE 16: SPOTLIGHT BORDER CARDS ─────────────────────────
   const spotGrid = document.getElementById('spotGrid');
   if (spotGrid) {
     spotGrid.addEventListener('mousemove', function(e) {

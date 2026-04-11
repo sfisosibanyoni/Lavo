@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lavo Sauvignon Blanc 2022 — Wines of Distinction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:      #111111;
+  --dark:       #1c1c1c;
+  --charcoal:   #3a3a3a;
+  --body-text:  #4a4a4a;
+  --muted:      #888888;
+  --light-grey: #f0efed;
+  --off-white:  #faf9f7;
+  --white:      #ffffff;
+  --gold:       #b8975a;
+  --gold-light: #d4b87a;
+  --border:     #e0deda;
+  --wine-a:     #060e04;
+  --wine-b:     #2e4820;
+  --wine-mid:   #162610;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; font-weight: 300; color: var(--body-text); background: var(--white); line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.1; font-weight: 400; }
+a { color: inherit; text-decoration: none; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; background: rgba(17,17,17,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav-back { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 10px; transition: color .2s; }
+.nav-back:hover { color: var(--gold); }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white); letter-spacing: 0.1em; }
+.nav-cta { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); transition: color .2s; }
+.nav-cta:hover { color: var(--gold); }
+
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; background: linear-gradient(150deg, var(--wine-a) 0%, var(--wine-mid) 50%, var(--wine-b) 100%); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 65% at 25% 50%, rgba(100,180,80,0.05), transparent 60%); pointer-events: none; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 140px 64px 80px 72px; position: relative; z-index: 2; }
+.hero-badge { display: inline-block; font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,151,90,0.4); padding: 6px 14px; margin-bottom: 36px; align-self: flex-start; }
+.hero-title { font-size: clamp(46px, 6.5vw, 80px); color: var(--white); line-height: 1.0; margin-bottom: 28px; }
+.hero-rule { width: 48px; height: 1px; background: var(--gold); margin-bottom: 28px; }
+.hero-tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: rgba(255,255,255,0.62); line-height: 1.6; max-width: 360px; margin-bottom: 56px; }
+.hero-stats { display: flex; gap: 40px; }
+.hero-stat-label { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: block; margin-bottom: 8px; }
+.hero-stat-value { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--white); }
+.hero-right { display: flex; align-items: flex-end; justify-content: center; position: relative; overflow: hidden; }
+.hero-bottle-wrap { position: absolute; bottom: -2%; left: 50%; transform: translateX(-50%); height: 85%; }
+.hero-bottle { height: 100%; opacity: 0.15; }
+.hero-vintage { position: absolute; bottom: 48px; right: 52px; font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+.scroll-cue { position: absolute; bottom: 40px; left: 72px; display: flex; align-items: center; gap: 14px; font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.28); }
+.scroll-cue-line { width: 40px; height: 1px; background: rgba(255,255,255,0.18); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+section { padding: 100px 0; }
+.eyebrow { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px; }
+.section-title { font-size: 40px; color: var(--black); margin-bottom: 20px; }
+.section-rule { width: 36px; height: 1px; background: var(--gold); margin-bottom: 36px; }
+
+.tasting { background: var(--white); border-top: 1px solid var(--border); }
+.tasting-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 88px; align-items: start; }
+.wine-image { position: relative; aspect-ratio: 3/4; overflow: hidden; background: linear-gradient(155deg, var(--wine-a) 0%, var(--wine-mid) 45%, var(--wine-b) 100%); }
+.wine-image::after { content: ''; position: absolute; inset: 16px; border: 1px solid rgba(184,151,90,0.18); pointer-events: none; }
+.wine-image-bottle { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 88%; opacity: 0.2; transition: opacity .5s, transform .5s; }
+.wine-image:hover .wine-image-bottle { opacity: 0.32; transform: translateX(-50%) scale(1.04); }
+.wine-image-tag { position: absolute; bottom: 22px; left: 22px; font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.28); }
+
+.tasting-body { padding-top: 4px; }
+.tasting-note { font-size: 16px; color: var(--body-text); line-height: 1.95; margin-bottom: 32px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+.tag { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--charcoal); border: 1px solid var(--border); padding: 6px 14px; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 48px; }
+.stat-cell { background: var(--off-white); padding: 20px 18px; }
+.stat-label { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
+.stat-value { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--black); }
+.pairing-list { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.pairing-item { display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--charcoal); }
+.pairing-item::before { content: ''; display: block; width: 22px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+.cellar { background: var(--off-white); border-top: 1px solid var(--border); }
+.cellar-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 88px; align-items: start; }
+.cellar-body { font-size: 15px; color: var(--body-text); line-height: 2.0; }
+.cellar-body p + p { margin-top: 20px; }
+.serving-box { background: var(--white); border: 1px solid var(--border); padding: 36px 32px; margin-bottom: 28px; }
+.serving-box h4 { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.serving-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--body-text); }
+.serving-row:last-child { border-bottom: none; padding-bottom: 0; }
+.serving-row span:last-child { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--black); }
+.brand-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--body-text); line-height: 1.65; padding-left: 24px; border-left: 2px solid var(--gold); }
+
+.download { background: var(--black); padding: 88px 0; text-align: center; }
+.download-eyebrow { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 20px; }
+.download-title { font-size: 40px; color: var(--white); margin-bottom: 14px; }
+.download-sub { font-size: 14px; color: rgba(255,255,255,0.42); line-height: 1.8; margin-bottom: 44px; }
+.download-btn { display: inline-flex; align-items: center; gap: 14px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; padding: 17px 40px; border: 1px solid var(--gold); color: var(--gold); transition: background .25s, color .25s; }
+.download-btn:hover { background: var(--gold); color: var(--black); }
+
+footer { background: var(--dark); padding: 36px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 17px; color: rgba(255,255,255,0.6); }
+.footer-links { display: flex; gap: 32px; }
+.footer-links a { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); transition: color .2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .32s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 960px) {
+  nav { padding: 20px 32px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 120px 40px 72px; }
+  .hero-right, .scroll-cue { display: none; }
+  .tasting-grid, .cellar-grid { grid-template-columns: 1fr; gap: 52px; }
+  .container { padding: 0 40px; }
+  section { padding: 72px 0; }
+}
+@media (max-width: 620px) {
+  nav { padding: 18px 24px; }
+  .hero-left { padding: 100px 24px 60px; }
+  .container { padding: 0 24px; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html#wines" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    All Wines
+  </a>
+  <a href="index.html" class="nav-logo">LAVO</a>
+  <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <span class="hero-badge">White Wine &middot; Wellington &middot; 2022</span>
+    <h1 class="hero-title">Sauvignon<br/>Blanc</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">Full-bodied and barrel-fermented — a white of remarkable depth and character.</p>
+    <div class="hero-stats">
+      <div>
+        <span class="hero-stat-label">Alcohol</span>
+        <span class="hero-stat-value">13.61%</span>
+      </div>
+      <div>
+        <span class="hero-stat-label">Acidity</span>
+        <span class="hero-stat-value">5.9 g/L</span>
+      </div>
+      <div>
+        <span class="hero-stat-label">Lees Age</span>
+        <span class="hero-stat-value">6 Months</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bottle-wrap">
+      <svg class="hero-bottle" viewBox="0 0 100 300" fill="white">
+        <path d="M42 0h16v36c8 4 22 18 22 54v168c0 12-9 18-20 18H40c-11 0-20-6-20-18V90c0-36 14-50 22-54V0z"/>
+      </svg>
+    </div>
+    <span class="hero-vintage">2022 Vintage</span>
+  </div>
+  <div class="scroll-cue">
+    <span class="scroll-cue-line"></span>
+    Scroll to explore
+  </div>
+</div>
+
+<section class="tasting">
+  <div class="container">
+    <div class="tasting-grid">
+      <div class="wine-image reveal">
+        <svg class="wine-image-bottle" viewBox="0 0 100 300" fill="white">
+          <path d="M42 0h16v36c8 4 22 18 22 54v168c0 12-9 18-20 18H40c-11 0-20-6-20-18V90c0-36 14-50 22-54V0z"/>
+        </svg>
+        <span class="wine-image-tag">Lavo Sauvignon Blanc &middot; 2022</span>
+      </div>
+      <div class="tasting-body">
+        <span class="eyebrow reveal">The Bottle</span>
+        <h2 class="section-title reveal d1">Tasting Profile</h2>
+        <div class="section-rule reveal d1"></div>
+        <p class="tasting-note reveal d2">A full bodied wine of exceptional quality. Barrel-fermented on French and American oak, then left on the lees for six months — creating a wine of remarkable depth and textural richness. Great with oysters and seafood platters, game meats and asparagus.</p>
+        <div class="tags reveal d2">
+          <span class="tag">Crisp</span>
+          <span class="tag">Fresh</span>
+          <span class="tag">Full-Bodied</span>
+          <span class="tag">Oak-Aged</span>
+          <span class="tag">Lees Character</span>
+        </div>
+        <div class="stats-grid reveal d3">
+          <div class="stat-cell">
+            <span class="stat-label">Alcohol</span>
+            <span class="stat-value">13.61%</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Total Acidity</span>
+            <span class="stat-value">5.9 g/L</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-label">Residual Sugar</span>
+            <span class="stat-value">1.9 g/L</span>
+          </div>
+        </div>
+        <span class="eyebrow reveal d3">Food Pairing</span>
+        <div class="pairing-list reveal d3">
+          <div class="pairing-item">Oysters and seafood platters</div>
+          <div class="pairing-item">Game meats</div>
+          <div class="pairing-item">Asparagus dishes</div>
+          <div class="pairing-item">Grilled fish</div>
+          <div class="pairing-item">Goat's cheese and fresh salads</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cellar">
+  <div class="container">
+    <div class="cellar-grid">
+      <div>
+        <span class="eyebrow reveal">The Cellar</span>
+        <h2 class="section-title reveal d1">Winemaking</h2>
+        <div class="section-rule reveal d1"></div>
+        <div class="cellar-body reveal d2">
+          <p>Grapes are protected against oxidation by SO2 and CO2 from offloading right through to pressing. Only free run juice is used for the Lavo range — the juice is floated and racked with only selected yeast used for fermentation at 16°C.</p>
+          <p>After two to three days of fermentation, the wine is racked to 300 litre French and American oak barrels where fermentation is finished. This barrel fermentation adds structure, complexity and a subtle oak character that integrates beautifully with the fruit.</p>
+          <p>The wine is then left on the lees for six months before bottling — a technique that builds texture, richness and the wine's signature full body.</p>
+        </div>
+      </div>
+      <div>
+        <div class="serving-box reveal d1">
+          <h4>Serving</h4>
+          <div class="serving-row">
+            <span>Temperature</span>
+            <span>8 – 11°C</span>
+          </div>
+          <div class="serving-row">
+            <span>Glass</span>
+            <span>White Wine</span>
+          </div>
+          <div class="serving-row">
+            <span>Decant</span>
+            <span>Not required</span>
+          </div>
+          <div class="serving-row">
+            <span>Oak</span>
+            <span>French &amp; American</span>
+          </div>
+        </div>
+        <p class="brand-quote reveal d2">"Lavo Wines is about pleasure, enjoyment, and connecting people around the world."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="download">
+  <div class="container">
+    <span class="download-eyebrow">Full Tasting Notes</span>
+    <h2 class="download-title">Download the PDF</h2>
+    <p class="download-sub">Complete tasting notes, technical analysis and<br/>winemaking details for the Lavo Sauvignon Blanc 2022.</p>
+    <a href="../Tasting notes/Lavo Wine Tasting Notes 2022 SB.pdf" target="_blank" class="download-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Tasting Notes
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Lavo — Wines of Distinction</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#wines">Our Wines</a>
+      <a href="index.html#story">Our Story</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <span class="footer-copy">&copy; 2024 Lavo Wines</span>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
