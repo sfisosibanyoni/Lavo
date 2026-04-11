@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Farm — Lavo Wine and Food</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:     #111111;
+  --dark:      #1c1c1c;
+  --body-text: #4a4a4a;
+  --muted:     #888888;
+  --off-white: #faf9f7;
+  --white:     #ffffff;
+  --gold:      #b8975a;
+  --border:    #e0deda;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: var(--body-text);
+  background: var(--white);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,h2,h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; line-height: 1.1; }
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+.nav {
+  position: fixed; inset: 0 0 auto; z-index: 200;
+  background: var(--black); padding: 0;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 40px;
+}
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+.logo-img { height: 48px; width: auto; display: block; }
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  position: absolute; left: 50%; transform: translateX(-50%);
+  list-style: none; padding: 0; margin: 0;
+}
+.nav-links a {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.65); transition: color .2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--gold); }
+.nav-icons { display: flex; align-items: center; gap: 18px; color: rgba(255,255,255,0.65); }
+.nav-icons a, .nav-icons button {
+  background: none; border: none; color: inherit;
+  cursor: pointer; transition: color .2s; display: flex; align-items: center;
+}
+.nav-icons a:hover, .nav-icons button:hover { color: var(--white); }
+.nav-toggle {
+  display: none; background: none; border: none; color: var(--white);
+  flex-direction: column; gap: 5px; padding: 4px; cursor: pointer;
+}
+.nav-toggle span { display: block; width: 22px; height: 1.5px; background: currentColor; transition: all .3s; }
+.mobile-drawer {
+  position: fixed; inset: 0; background: var(--black); z-index: 199;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  transform: translateX(-100%); transition: transform .4s cubic-bezier(0.22,1,0.36,1);
+}
+.mobile-drawer.open { transform: none; }
+.mobile-drawer a {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 36px; color: var(--white); transition: color .2s;
+}
+.mobile-drawer a:hover { color: var(--gold); }
+.mobile-drawer-close {
+  position: absolute; top: 20px; right: 24px;
+  background: none; border: none; color: var(--white);
+  font-size: 20px; cursor: pointer; opacity: 0.6;
+}
+
+/* ── HERO IMAGE ──────────────────────────────────────────────── */
+.farm-hero {
+  margin-top: 64px;
+  height: 58vh;
+  min-height: 320px;
+  overflow: hidden;
+}
+.farm-hero img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 55%;
+  display: block;
+}
+
+/* ── "THE FARM" INTRO ────────────────────────────────────────── */
+.farm-intro {
+  padding: 64px 0 72px;
+  background: var(--white);
+}
+.farm-intro-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.farm-intro h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 28px;
+}
+.farm-intro-rule {
+  width: 36px; height: 1px;
+  background: var(--gold); margin-bottom: 24px;
+}
+.farm-intro p {
+  font-size: 14.5px; line-height: 1.95;
+  color: var(--body-text); margin-bottom: 16px;
+}
+.farm-intro p:last-child { margin-bottom: 0; }
+
+/* ── PRODUCTION IMAGE ────────────────────────────────────────── */
+.farm-production-img {
+  height: 50vh; min-height: 280px; overflow: hidden;
+}
+.farm-production-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center center; display: block;
+}
+
+/* ── LAVO WINES FARM DETAILS ─────────────────────────────────── */
+.farm-details {
+  padding: 88px 0 80px;
+  background: var(--white);
+  text-align: center;
+}
+.farm-details-inner {
+  max-width: 680px; margin: 0 auto; padding: 0 40px;
+}
+.farm-details-eyebrow {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.farm-details h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-style: italic; font-weight: 400;
+  color: var(--black); margin-bottom: 24px;
+}
+.farm-details-rule {
+  width: 36px; height: 1px;
+  background: var(--gold); margin: 0 auto 24px;
+}
+.farm-details p {
+  font-size: 14.5px; line-height: 1.95;
+  color: var(--body-text); margin-bottom: 44px;
+}
+
+/* Key facts list */
+.farm-facts {
+  text-align: left;
+  border-top: 1px solid var(--border);
+}
+.farm-fact-row {
+  display: flex; gap: 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.farm-fact-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gold); flex: 0 0 120px;
+}
+.farm-fact-value {
+  font-family: 'Jost', sans-serif;
+  font-size: 13.5px; color: var(--body-text);
+}
+
+/* ── GALLERY ─────────────────────────────────────────────────── */
+.farm-gallery {
+  padding: 80px 0 88px;
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+}
+.farm-gallery-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+}
+.farm-gallery-eyebrow {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+  text-align: center;
+}
+.farm-gallery h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-style: italic; font-weight: 400;
+  color: var(--black); text-align: center;
+  margin-bottom: 48px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 380px 380px;
+  gap: 12px;
+}
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.gallery-item:hover img { transform: scale(1.04); }
+
+/* ── CLOSING ─────────────────────────────────────────────────── */
+.closing-band {
+  background: var(--dark);
+  padding: 100px 40px; text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.closing-eyebrow {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  color: rgba(184,151,90,0.5); margin-bottom: 28px;
+}
+.closing-band h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 80px);
+  font-style: italic; color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+/* -- FOOTER --------------------------------------------------------- */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 52px 0 32px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+}
+.footer-top-row {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 36px;
+}
+.footer-logo-img { height: 44px; width: auto; display: block; }
+.footer-nav { display: flex; gap: 28px; }
+.footer-nav a {
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4); transition: color .2s;
+}
+.footer-nav a:hover { color: var(--white); }
+.footer-social { display: flex; gap: 16px; }
+.footer-social a {
+  color: rgba(255,255,255,0.4); transition: color .2s;
+  display: flex; align-items: center;
+}
+.footer-social a:hover { color: var(--gold); }
+.footer-divider {
+  width: 100%; height: 1px;
+  background: rgba(255,255,255,0.06); margin-bottom: 24px;
+}
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p {
+  font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.05em;
+}
+
+/* ── REVEAL ──────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .farm-intro-inner { grid-template-columns: 1fr; gap: 0; }
+  .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .gallery-item { height: 280px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-icons { display: none; }
+  .nav-toggle { display: flex; }
+  .footer-top-row { flex-direction: column; gap: 24px; align-items: flex-start; }
+  .footer-nav { flex-wrap: wrap; gap: 16px; }
+  .footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+@media (max-width: 520px) {
+  .farm-intro-inner, .farm-details-inner, .farm-gallery-inner, .footer-inner { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Lavo Wine and Food">
+      <img src="logo-gold.png" alt="Lavo Wines" class="logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="the-farm.html" class="active">The Farm</a></li>
+      <li><a href="index.html#wines">Our Wines</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="https://www.instagram.com/lavowines/" target="_blank" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://x.com/LavoWines" target="_blank" aria-label="X">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <button class="mobile-drawer-close" id="drawerClose">✕</button>
+  <a href="index.html">Home</a>
+  <a href="our-story.html">Our Story</a>
+  <a href="the-farm.html">The Farm</a>
+  <a href="index.html#wines">Our Wines</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="farm-hero">
+  <img src="farm-harvest.jpg" alt="Harvest at Lavo Wines Farm, Wellington" fetchpriority="high" />
+</div>
+
+<!-- THE FARM INTRO -->
+<section class="farm-intro">
+  <div class="farm-intro-inner">
+    <div>
+      <h1 class="reveal">The Farm</h1>
+      <div class="farm-intro-rule reveal d1"></div>
+    </div>
+    <div>
+      <p class="reveal">
+        The Lavo Wines Farm is situated in the heart of Wellington in the Western Cape —
+        one of South Africa's most celebrated winemaking valleys. Surrounded by the
+        dramatic Hawekwa and Groenberg mountain ranges, the estate enjoys a distinctive
+        terroir shaped by warm days, cool evenings, and rich, well-drained valley soils.
+      </p>
+      <p class="reveal d1">
+        Wellington has been at the forefront of South African viticulture since the
+        17th century. It is a region of remarkable natural beauty and deep winemaking
+        heritage — a heritage we are proud to honour in every bottle of Lavo wine we
+        produce. From vine to bottle, we let the land speak.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTION IMAGE -->
+<div class="farm-production-img">
+  <img src="farm-cellar.jpg" alt="Wine production and maturation at Lavo Wines Farm" />
+</div>
+
+<!-- LAVO WINES FARM DETAILS -->
+<section class="farm-details">
+  <div class="farm-details-inner">
+    <span class="farm-details-eyebrow reveal">The Estate</span>
+    <h2 class="reveal d1">Lavo Wines Farm</h2>
+    <div class="farm-details-rule reveal d1"></div>
+    <p class="reveal d2">
+      Our Wellington estate produces six distinctive varietals that together reflect
+      the full breadth of what this remarkable valley can offer. Every season brings
+      new nuances — new opportunities to listen to the land and craft wines worthy
+      of the Lavo name.
+    </p>
+    <div class="farm-facts reveal d2">
+      <div class="farm-fact-row">
+        <span class="farm-fact-label">Location</span>
+        <span class="farm-fact-value">Wellington, Western Cape, South Africa</span>
+      </div>
+      <div class="farm-fact-row">
+        <span class="farm-fact-label">Farm</span>
+        <span class="farm-fact-value">Anura Vineyards, Wellington</span>
+      </div>
+      <div class="farm-fact-row">
+        <span class="farm-fact-label">Climate</span>
+        <span class="farm-fact-value">Mediterranean — warm days, cool nights</span>
+      </div>
+      <div class="farm-fact-row">
+        <span class="farm-fact-label">Varietals</span>
+        <span class="farm-fact-value">Merlot · Cabernet Sauvignon · Chardonnay · Sauvignon Blanc · Chenin Blanc · Sparkling Brut</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="farm-gallery">
+  <div class="farm-gallery-inner">
+    <span class="farm-gallery-eyebrow reveal">The Estate</span>
+    <h2 class="reveal d1">Life on the Farm</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="farm-barrel.jpg" alt="Wine barrels at Lavo Wines Farm" />
+      </div>
+      <div class="gallery-item reveal d1">
+        <img src="farm-large.jpg" alt="Lavo Wines Farm, Wellington" />
+      </div>
+      <div class="gallery-item reveal d1">
+        <img src="farm-process.jpg" alt="Wine processing at Lavo Wines Farm" />
+      </div>
+      <div class="gallery-item reveal d2">
+        <img src="farm-harvest2.jpg" alt="Harvest at Lavo Wines Farm" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing-band">
+  <span class="closing-eyebrow">Lavo — Wines of Distinction</span>
+  <h2>It's love, in a bottle.</h2>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top-row">
+      <img src="logo-gold.png" alt="Lavo Wines" class="footer-logo-img" />
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="the-farm.html">The Farm</a>
+        <a href="index.html#wines">Our Wines</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="footer-social">
+      <a href="https://www.instagram.com/lavowines/" target="_blank" aria-label="Instagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" aria-label="Facebook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://x.com/LavoWines" target="_blank" aria-label="X">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2026 Lavo Wine and Food. All rights reserved.</p>
+      <p>Not for sale to persons under 18. Please enjoy responsibly.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const drawer = document.getElementById('mobileDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+  toggle.addEventListener('click', () => { drawer.classList.add('open'); document.body.style.overflow = 'hidden'; });
+  const closeDrawer = () => { drawer.classList.remove('open'); document.body.style.overflow = ''; };
+  drawerClose.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(l => l.addEventListener('click', closeDrawer));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

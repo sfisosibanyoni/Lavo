@@ -43,7 +43,8 @@ nav {
   color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 10px; transition: color .2s;
 }
 .nav-back:hover { color: var(--gold); }
-.nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white); letter-spacing: 0.1em; }
+.nav-logo { display:flex; align-items:center; text-decoration:none; }
+.nav-logo-img { height:40px; width:auto; display:block; }
 .nav-cta { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); transition: color .2s; }
 .nav-cta:hover { color: var(--gold); }
 
@@ -180,7 +181,9 @@ footer { background: var(--dark); padding: 36px 0; border-top: 1px solid rgba(25
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
     All Wines
   </a>
-  <a href="index.html" class="nav-logo">LAVO</a>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-gold.png" alt="Lavo Wines" class="nav-logo-img" />
+  </a>
   <a href="index.html#contact" class="nav-cta">Get in Touch</a>
 </nav>
 
@@ -324,7 +327,8 @@ footer { background: var(--dark); padding: 36px 0; border-top: 1px solid rgba(25
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="index.html#wines">Our Wines</a>
-      <a href="index.html#story">Our Story</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="the-farm.html">The Farm</a>
       <a href="index.html#contact">Contact</a>
     </div>
     <span class="footer-copy">&copy; 2024 Lavo Wines</span>
