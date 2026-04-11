@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lavo Wine and Food — Wines of Distinction</title>
+<meta name="description" content="Lavo Wine and Food — Wines of Distinction. It's love, in a bottle. Wellington, South Africa." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+/* ============================================================
+   TOKENS — faithful to the original: black / white / grey / gold
+============================================================ */
+:root {
+  --black:       #111111;
+  --dark:        #1c1c1c;
+  --mid:         #2e2e2e;
+  --charcoal:    #3a3a3a;
+  --body-text:   #4a4a4a;
+  --muted:       #888888;
+  --light-grey:  #f0efed;
+  --off-white:   #faf9f7;
+  --white:       #ffffff;
+  --gold:        #b8975a;
+  --gold-light:  #d4b87a;
+  --border:      #e0deda;
+}
+
+/* ============================================================
+   IMAGE PLACEHOLDERS
+============================================================ */
+.img-ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 32px;
+  text-align: center;
+}
+.img-ph--light { background: #e8e4de; }
+.img-ph--dark  { background: #1e1a14; }
+.img-ph--warm  { background: #d8cfc4; }
+
+.img-ph__icon {
+  width: 52px; height: 52px;
+  opacity: 0.45;
+}
+.img-ph--light .img-ph__icon { color: #6b5c48; }
+.img-ph--dark  .img-ph__icon { color: #c8b88a; }
+.img-ph--warm  .img-ph__icon { color: #7a6a58; }
+
+.img-ph__label {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.img-ph--light .img-ph__label { color: #6b5c48; }
+.img-ph--dark  .img-ph__label { color: var(--gold); }
+.img-ph--warm  .img-ph__label { color: #6b5c48; }
+
+.img-ph__desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 260px;
+}
+.img-ph--light .img-ph__desc { color: rgba(60,45,30,0.6); }
+.img-ph--dark  .img-ph__desc { color: rgba(240,230,210,0.55); }
+.img-ph--warm  .img-ph__desc { color: rgba(60,45,30,0.6); }
+
+.img-ph__file {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.img-ph--light .img-ph__file {
+  background: rgba(107,92,72,0.12);
+  color: rgba(60,45,30,0.55);
+  border: 1px solid rgba(107,92,72,0.2);
+}
+.img-ph--dark .img-ph__file {
+  background: rgba(184,151,90,0.1);
+  color: rgba(240,230,210,0.5);
+  border: 1px solid rgba(184,151,90,0.2);
+}
+.img-ph--warm .img-ph__file {
+  background: rgba(107,92,72,0.12);
+  color: rgba(60,45,30,0.55);
+  border: 1px solid rgba(107,92,72,0.2);
+}
+
+/* Shop card photo slot */
+.sc-photo {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  margin: -40px -32px 32px -32px;
+  width: calc(100% + 64px);
+}
+.sc-photo .img-ph { position: absolute; inset: 0; }
+
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', -apple-system, sans-serif;
+  font-weight: 300;
+  color: var(--body-text);
+  background: var(--white);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.15;
+  font-weight: 400;
+}
+a { color: inherit; text-decoration: none; transition: color .2s; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+button { cursor: pointer; font-family: inherit; }
+input, textarea { font-family: inherit; }
+
+/* ============================================================
+   UTILITIES
+============================================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.tag {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.d1 { transition-delay: .08s; }
+.reveal.d2 { transition-delay: .16s; }
+.reveal.d3 { transition-delay: .24s; }
+.reveal.d4 { transition-delay: .32s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Buttons */
+.btn-black {
+  display: inline-block;
+  padding: 13px 32px;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--black);
+  transition: background .25s, color .25s;
+}
+.btn-black:hover {
+  background: var(--white);
+  color: var(--black);
+}
+.btn-outline {
+  display: inline-block;
+  padding: 13px 32px;
+  background: transparent;
+  color: var(--black);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid var(--black);
+  transition: background .25s, color .25s;
+}
+.btn-outline:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 200;
+  background: var(--black);
+  padding: 0;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* SVG leaf/bird icon */
+.logo-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--gold);
+}
+.logo-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-links a {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  transition: color .2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--white); }
+
+/* Nav right icons */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: rgba(255,255,255,0.75);
+}
+.nav-icons button,
+.nav-icons a {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color .2s;
+  display: flex;
+  align-items: center;
+}
+.nav-icons button:hover,
+.nav-icons a:hover { color: var(--white); }
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: currentColor;
+  transition: all .3s;
+}
+
+/* Mobile drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  z-index: 199;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  transform: translateX(-100%);
+  transition: transform .4s cubic-bezier(0.22,1,0.36,1);
+}
+.mobile-drawer.open { transform: none; }
+.mobile-drawer a {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--white);
+  transition: color .2s;
+}
+.mobile-drawer a:hover { color: var(--gold); }
+.mobile-drawer-close {
+  position: absolute;
+  top: 20px; right: 22px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 64px;
+}
+/* Dark field texture overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(30,20,10,0.9), transparent 70%),
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+}
+/* Simulated vineyard row texture */
+.hero-texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 38px,
+      rgba(255,255,255,0.018) 38px,
+      rgba(255,255,255,0.018) 39px
+    ),
+    linear-gradient(180deg, #1a1612 0%, #0d0d0b 60%, #111111 100%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 80px 0 120px;
+}
+.hero-text { max-width: 520px; }
+.hero-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+}
+.hero h1 {
+  font-size: clamp(48px, 6vw, 80px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 0;
+  letter-spacing: -0.01em;
+}
+/* Lowercase like the original */
+.hero h1 { text-transform: none; }
+
+.hero-bottles {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 20px;
+}
+/* Simulated bottle shapes */
+.bottle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.bottle-body {
+  width: 36px;
+  border-radius: 3px 3px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.bottle-body::after {
+  content: 'LAVO';
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Jost', sans-serif;
+  font-size: 6px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+}
+.bottle-neck {
+  width: 14px;
+  height: 30px;
+  border-radius: 2px 2px 0 0;
+}
+.bottle-top {
+  width: 14px;
+  height: 8px;
+  border-radius: 2px 2px 0 0;
+  background: #333;
+}
+/* Red wines */
+.bottle.red .bottle-body { height: 140px; background: linear-gradient(180deg, #2a1a1a, #1c0f0f); }
+.bottle.red .bottle-neck { background: #2a1a1a; }
+/* White wines */
+.bottle.white .bottle-body { height: 150px; background: linear-gradient(180deg, #e8e0c8, #d4c89a); }
+.bottle.white .bottle-neck { background: #c8b878; }
+/* Label area */
+.bottle-label {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 38px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 1px;
+}
+
+
+/* ============================================================
+   INSTAGRAM STRIP
+============================================================ */
+.instagram-strip {
+  background: var(--light-grey);
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.insta-card {
+  background: var(--black);
+  padding: 44px 52px;
+  text-align: center;
+  min-width: 220px;
+}
+.insta-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+  display: block;
+}
+.insta-count {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.insta-sublabel {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  display: block;
+}
+
+/* ============================================================
+   NEWSLETTER
+============================================================ */
+.newsletter {
+  padding: 100px 0;
+  background: var(--white);
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.newsletter .tag { margin-bottom: 14px; }
+.newsletter h2 {
+  font-size: 44px;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.newsletter .sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+.newsletter-form {
+  display: flex;
+  max-width: 480px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+}
+.newsletter-form input {
+  flex: 1;
+  padding: 16px 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: var(--black);
+  background: var(--white);
+  font-family: 'Jost', sans-serif;
+}
+.newsletter-form input::placeholder { color: var(--muted); }
+.newsletter-form button {
+  padding: 16px 28px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: background .25s;
+}
+.newsletter-form button:hover { background: var(--charcoal); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: var(--black);
+  padding: 72px 0 36px;
+}
+.footer-top {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.footer-eyebrow {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+}
+.footer-headline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+}
+.footer-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,0.15);
+  margin: 32px auto;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.footer-nav a {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  transition: color .2s;
+}
+.footer-nav a:hover { color: var(--white); }
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.footer-social a {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 11px;
+  transition: all .2s;
+}
+.footer-social a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-bottom-bar p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   SHOP SECTION
+============================================================ */
+.page-section {
+  padding: 120px 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+
+/* Shop grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.shop-card {
+  background: var(--off-white);
+  padding: 40px 32px;
+  border: 1px solid var(--border);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.shop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -20px rgba(0,0,0,0.2);
+}
+.shop-card .sc-num {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 18px;
+}
+.shop-card h3 {
+  font-size: 30px;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.shop-card .sc-type {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  margin-bottom: 18px;
+}
+.shop-card p { font-size: 14px; color: var(--body-text); line-height: 1.8; margin-bottom: 28px; }
+.shop-card .sc-link {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: gap .2s;
+}
+.shop-card:hover .sc-link { gap: 12px; }
+
+/* ============================================================
+   CONTACT CTA BAND
+============================================================ */
+.cta-band {
+  padding: 80px 0;
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+}
+.cta-band-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.cta-band-text h2 {
+  font-size: clamp(30px, 3.2vw, 46px);
+  color: var(--black);
+  margin-top: 10px;
+  line-height: 1.15;
+}
+.cta-band-details {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.cta-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-decoration: none;
+}
+.cta-detail-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cta-detail-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--black);
+  transition: color .2s;
+}
+.cta-detail:hover .cta-detail-value { color: var(--gold); }
+
+/* ============================================================
+   MODULE 01 — TEXT MASK REVEAL
+   "it's love in a bottle" fills with gold as you scroll
+============================================================ */
+.mask-section {
+  position: relative;
+  min-height: 260vh;
+  background: var(--black);
+}
+.mask-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.mask-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1208 0%, #0d0b08 55%, #1a1510 100%);
+}
+.mask-text-outline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(56px, 13vw, 192px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 0.95;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(250,248,243,0.10);
+  position: relative;
+  z-index: 2;
+  user-select: none;
+}
+.mask-reveal-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  clip-path: inset(100% 0 0 0);
+}
+.mask-text-filled {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(56px, 13vw, 192px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 0.95;
+  text-align: center;
+  letter-spacing: -0.02em;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, #9a7840 0%, #c5a55a 40%, #dfc38e 70%, #b8975a 100%);
+  background-size: cover;
+}
+.mask-sub {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0;
+  z-index: 4;
+  white-space: nowrap;
+}
+.mask-sub p {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(250,248,243,0.4);
+}
+
+/* ============================================================
+   MODULE 02 — STICKY STACK NARRATIVE
+   Visual stays pinned; story cards scroll past on the right
+============================================================ */
+.narrative-section {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+.narrative-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.narrative-visual {
+  position: sticky;
+  top: 96px;
+  height: fit-content;
+}
+.narrative-panel {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+}
+/* Gold bar on active state */
+.narrative-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, var(--gold), var(--gold-light));
+  z-index: 10;
+  transition: height 0.6s ease;
+}
+.narrative-panel.bar-active::before { height: 100%; }
+.narrative-state {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.narrative-state.active { opacity: 1; }
+
+/* State captions shown inside the visual panel */
+.ns-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 32px;
+  background: linear-gradient(0deg, rgba(17,17,17,0.75) 0%, transparent 100%);
+  z-index: 2;
+}
+.ns-caption .ns-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+  display: block;
+}
+.ns-caption .ns-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #fff;
+}
+
+/* Right side scrolling cards */
+.narrative-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 40px 0;
+}
+.n-card {
+  padding: 36px 32px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  opacity: 0.28;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.n-card.active {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold), 0 16px 40px rgba(184,151,90,0.12);
+}
+.n-card .n-num {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 14px;
+}
+.n-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.n-card p {
+  font-size: 15px;
+  color: var(--body-text);
+  line-height: 1.85;
+}
+
+/* ============================================================
+   MODULE 16 — SPOTLIGHT BORDER CARDS
+   Gold spotlight tracks cursor across the shop grid
+============================================================ */
+.spot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 56px;
+}
+.spot-card {
+  background: var(--off-white);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.35s ease;
+}
+/* Gold spotlight radial that follows cursor */
+.spot-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    circle 220px at var(--mx, 50%) var(--my, 50%),
+    rgba(184,151,90,0.18),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.spot-card:hover::before { opacity: 1; }
+/* Gold top border reveal on hover */
+.spot-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+.spot-card:hover::after { transform: scaleX(1); }
+/* All card children sit above the spotlight */
+.spot-card > * { position: relative; z-index: 2; }
+.spot-card .sc-num { color: var(--gold); font-size: 10px; letter-spacing: 0.25em; display: block; margin-bottom: 18px; }
+.spot-card h3 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--black); margin-bottom: 8px; }
+.spot-card .sc-type {
+  display: inline-block; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--charcoal);
+  border: 1px solid var(--border); padding: 4px 10px; margin-bottom: 18px;
+}
+.spot-card p { font-size: 14px; color: var(--body-text); line-height: 1.8; margin-bottom: 28px; }
+.spot-card .sc-link {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--black); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid currentColor; padding-bottom: 2px;
+  transition: gap .2s, color .2s;
+}
+.spot-card:hover .sc-link { gap: 12px; color: var(--gold); }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 960px) {
+  .container { padding: 0 28px; }
+  .hero-content { grid-template-columns: 1fr; }
+  .hero-bottles { display: none; }
+  .spot-grid { grid-template-columns: 1fr 1fr; }
+  .footer-nav { gap: 24px; }
+  .page-section { padding: 80px 0; }
+  .cta-band { padding: 60px 0; }
+  /* Narrative stack goes single column on tablet */
+  .narrative-wrap { grid-template-columns: 1fr; padding: 60px 28px 80px; }
+  .narrative-visual { position: relative; top: 0; }
+  .narrative-panel { aspect-ratio: 16/9; }
+}
+@media (max-width: 620px) {
+  .container { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-icons { display: none; }
+  .nav-toggle { display: flex; }
+  .hero h1 { font-size: 48px; }
+  .spot-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form input { border-bottom: 1px solid var(--border); }
+  .narrative-wrap { padding: 48px 20px 60px; gap: 32px; }
+  .mask-section { min-height: 200vh; }
+  .cta-band-inner { flex-direction: column; align-items: flex-start; }
+  .cta-band-details { flex-direction: column; align-items: flex-start; gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================
+  NAVIGATION
+================================================ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+
+    <a href="#home" class="logo" aria-label="Lavo Wine and Food">
+      <!-- Small vine/leaf icon matching the original logo -->
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.5 2 6 5 6 8c0 4 4 7 6 10 2-3 6-6 6-10 0-3-2.5-6-6-6zm0 2c2.2 0 4 2 4 4 0 2.8-2.8 5.2-4 7.5C10.8 13.2 8 10.8 8 8c0-2 1.8-4 4-4z"/>
+        </svg>
+      </div>
+      <span class="logo-text">Lavo</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-icons">
+      <!-- Instagram icon -->
+      <a href="https://www.instagram.com/lavowines/" target="_blank" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <!-- Person icon -->
+      <a href="#contact" aria-label="Account">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <!-- Search icon -->
+      <button aria-label="Search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <button class="mobile-drawer-close" id="drawerClose">✕</button>
+  <a href="#home" class="d-link">Home</a>
+  <a href="#story" class="d-link">Our Story</a>
+  <a href="#shop" class="d-link">Shop</a>
+  <a href="#contact" class="d-link">Contact</a>
+</div>
+
+<!-- ================================================
+  HERO
+================================================ -->
+<header class="hero" id="home">
+  <div class="hero-texture"></div>
+  <div class="container hero-content">
+    <div class="hero-text reveal">
+      <span class="hero-eyebrow">Lavo — Wines of Distinction</span>
+      <h1>it's love<br/>in a bottle</h1>
+    </div>
+
+    <!-- Bottle row — matching original 5-bottle layout -->
+    <div class="hero-bottles reveal d2">
+      <!-- Bottle 1: Red -->
+      <div class="bottle red">
+        <div class="bottle-top"></div>
+        <div class="bottle-neck" style="background:#2a1a1a;"></div>
+        <div class="bottle-body"><div class="bottle-label"></div></div>
+      </div>
+      <!-- Bottle 2: White -->
+      <div class="bottle white">
+        <div class="bottle-top" style="background:#888;"></div>
+        <div class="bottle-neck"></div>
+        <div class="bottle-body"><div class="bottle-label" style="background:rgba(255,255,255,0.25);"></div></div>
+      </div>
+      <!-- Bottle 3: White (tallest) -->
+      <div class="bottle white">
+        <div class="bottle-top" style="background:#888;"></div>
+        <div class="bottle-neck"></div>
+        <div class="bottle-body" style="height:160px;"><div class="bottle-label" style="background:rgba(255,255,255,0.25);"></div></div>
+      </div>
+      <!-- Bottle 4: White -->
+      <div class="bottle white">
+        <div class="bottle-top" style="background:#888;"></div>
+        <div class="bottle-neck"></div>
+        <div class="bottle-body"><div class="bottle-label" style="background:rgba(255,255,255,0.25);"></div></div>
+      </div>
+      <!-- Bottle 5: Red -->
+      <div class="bottle red">
+        <div class="bottle-top"></div>
+        <div class="bottle-neck" style="background:#2a1a1a;"></div>
+        <div class="bottle-body"><div class="bottle-label"></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================
+  STICKY STACK NARRATIVE — Module 02
+  Visual panel pins left; story cards scroll right
+================================================ -->
+<section class="narrative-section" id="story">
+  <div class="narrative-wrap">
+
+    <!-- LEFT: sticky visual panel -->
+    <div class="narrative-visual">
+      <div class="narrative-panel" id="narrativePanel">
+
+        <!-- State 1: Wine pour photography -->
+        <div class="narrative-state active" data-state="1">
+          <div class="img-ph img-ph--dark" style="position:absolute;inset:0;">
+            <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span class="img-ph__label">Welcome Photography</span>
+            <span class="img-ph__file">welcome-wine-pour.jpg · 800 × 960px</span>
+          </div>
+          <div class="ns-caption">
+            <span class="ns-label">Our Story</span>
+            <span class="ns-title">Created from love.</span>
+          </div>
+        </div>
+
+        <!-- State 2: Vineyard / farm -->
+        <div class="narrative-state" data-state="2">
+          <div class="img-ph img-ph--warm" style="position:absolute;inset:0;">
+            <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span class="img-ph__label">Vineyard Photography</span>
+            <span class="img-ph__file">de-slange-rivier-vineyard.jpg · 800 × 960px</span>
+          </div>
+          <div class="ns-caption">
+            <span class="ns-label">The Farm</span>
+            <span class="ns-title">Est. 1699, Wellington.</span>
+          </div>
+        </div>
+
+        <!-- State 3: Wine club / hamper -->
+        <div class="narrative-state" data-state="3">
+          <div class="img-ph img-ph--light" style="position:absolute;inset:0;">
+            <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span class="img-ph__label">Wine Club Photography</span>
+            <span class="img-ph__file">wine-club-members.jpg · 800 × 960px</span>
+          </div>
+          <div class="ns-caption">
+            <span class="ns-label">The Club</span>
+            <span class="ns-title">Love at your doorstep.</span>
+          </div>
+        </div>
+
+        <!-- State 4: Food & experiences -->
+        <div class="narrative-state" data-state="4">
+          <div class="img-ph img-ph--dark" style="position:absolute;inset:0;">
+            <svg class="img-ph__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span class="img-ph__label">Food Photography</span>
+            <span class="img-ph__file">lavo-food-pairing.jpg · 800 × 960px</span>
+          </div>
+          <div class="ns-caption">
+            <span class="ns-label">Food &amp; Experiences</span>
+            <span class="ns-title">Wine &amp; food, together.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: scrolling story cards -->
+    <div class="narrative-cards">
+
+      <div class="n-card active" data-feature="1">
+        <span class="n-num">Welcome to Lavo Wines</span>
+        <h3>Created from love.</h3>
+        <p>Lavo wine originates from the name Lerato, a Southern African name which means love. Lavo Wines is about pleasure, enjoyment, and connecting people around the world — the one thread connecting people of different backgrounds to share congenial association over a glass of wine.</p>
+        <p style="margin-top:14px;font-style:italic;font-family:'Playfair Display',serif;color:var(--gold);font-size:17px;">Our wine has been created from love, to be enjoyed with love.</p>
+      </div>
+
+      <div class="n-card" data-feature="2">
+        <span class="n-num">The Farm</span>
+        <h3>De Slange Rivier, Wellington.</h3>
+        <p>Our wines are produced in Wellington, South Africa, at a historic vineyard called De Slange Rivier — founded in 1699 by the French Huguenot Louis Fourie. More than three centuries of vine-growing heritage flows through every vintage we produce.</p>
+      </div>
+
+      <div class="n-card" data-feature="3">
+        <span class="n-num">The Club</span>
+        <h3>Join the wine club.</h3>
+        <p>Receive a monthly wine hamper delivered at your doorstep and enjoy exclusive access to our premium events. LAVO Wine Club members also enjoy tasting previews of all our new wine varieties — the first to taste everything we make.</p>
+      </div>
+
+      <div class="n-card" data-feature="4">
+        <span class="n-num">Food &amp; Experiences</span>
+        <h3>LAVO Food &amp; Experiences.</h3>
+        <p>We are always cooking up a storm, partnering with seasoned and new chefs to explore the best recipes for you to enjoy alongside our wines. Food and wine — the perfect love story, every time.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  TEXT MASK REVEAL — Module 01
+  "it's love in a bottle" fills with gold on scroll
+================================================ -->
+<div class="mask-section" id="mask-section">
+  <div class="mask-sticky">
+    <div class="mask-bg"></div>
+
+    <!-- Ghost outlined text (barely visible on dark bg) -->
+    <div class="mask-text-outline">it's love<br/>in a bottle</div>
+
+    <!-- Filled gold layer — clips in from bottom as you scroll -->
+    <div class="mask-reveal-layer" id="maskReveal">
+      <div class="mask-text-filled">it's love<br/>in a bottle</div>
+    </div>
+
+    <!-- Subtext fades in after fill completes -->
+    <div class="mask-sub" id="maskSub">
+      <p>Wines of Distinction &nbsp;·&nbsp; Wellington, South Africa</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================================================
+  SHOP
+================================================ -->
+<section class="page-section" id="shop">
+  <div class="container">
+    <span class="tag reveal">Shop</span>
+    <h2 class="reveal" style="font-size:52px;color:var(--black);margin-top:12px;">Our Wines</h2>
+    <p class="reveal" style="font-size:16px;color:var(--body-text);max-width:560px;margin-top:16px;">Noble varietals grown on our Wellington estate. Each bottle a reflection of the terroir, the sun, and three centuries of South African winemaking heritage.</p>
+
+    <!-- Spotlight Border Cards — Module 16 -->
+    <div class="spot-grid reveal" id="spotGrid">
+
+      <article class="spot-card">
+        <div class="sc-photo" style="margin:-40px -32px 32px -32px;width:calc(100% + 64px);">
+          <div class="img-ph img-ph--dark">
+            <svg class="img-ph__icon" style="width:34px;height:34px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span class="img-ph__label" style="font-size:9px;">Product Shot</span>
+            <span class="img-ph__file">lavo-merlot-bottle.png · 480 × 400px</span>
+          </div>
+        </div>
+        <span class="sc-num">No. 01</span>
+        <h3>Merlot</h3>
+        <span class="sc-type">Red Wine · Wellington</span>
+        <p>A complex Merlot with intense flavours of ripe blackberry, red berry and blackcurrant, hints of mint and violet aromas — including subtle tones of dark chocolate and coffee.</p>
+        <a href="#contact" class="sc-link">Order Now →</a>
+      </article>
+
+      <article class="spot-card">
+        <div class="sc-photo" style="margin:-40px -32px 32px -32px;width:calc(100% + 64px);">
+          <div class="img-ph img-ph--dark">
+            <svg class="img-ph__icon" style="width:34px;height:34px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span class="img-ph__label" style="font-size:9px;">Product Shot</span>
+            <span class="img-ph__file">lavo-cabernet-bottle.png · 480 × 400px</span>
+          </div>
+        </div>
+        <span class="sc-num">No. 02</span>
+        <h3>Cabernet Sauvignon</h3>
+        <span class="sc-type">Red Wine · Wellington</span>
+        <p>An elegant, rich and soft style Cabernet Sauvignon with concentrated dark berry fruit and hints of mocha — backed by silky, well-integrated tannins.</p>
+        <a href="#contact" class="sc-link">Order Now →</a>
+      </article>
+
+      <article class="spot-card">
+        <div class="sc-photo" style="margin:-40px -32px 32px -32px;width:calc(100% + 64px);">
+          <div class="img-ph img-ph--light">
+            <svg class="img-ph__icon" style="width:34px;height:34px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span class="img-ph__label" style="font-size:9px;">Product Shot</span>
+            <span class="img-ph__file">lavo-sparkling-bottle.png · 480 × 400px</span>
+          </div>
+        </div>
+        <span class="sc-num">No. 03</span>
+        <h3>Sparkling Wine</h3>
+        <span class="sc-type">MCC · Wellington</span>
+        <p>Our celebrated sparkling wine — bright, celebratory, and full of life. Exported internationally and perfect for marking every occasion with love.</p>
+        <a href="#contact" class="sc-link">Order Now →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+  INSTAGRAM STRIP
+================================================ -->
+<div class="instagram-strip">
+  <div class="insta-card reveal">
+    <span class="insta-label">Instagram</span>
+    <span class="insta-count">895</span>
+    <span class="insta-sublabel">Instagram Followers</span>
+  </div>
+</div>
+
+<!-- ================================================
+  NEWSLETTER
+================================================ -->
+<section class="newsletter">
+  <div class="container">
+    <span class="tag reveal">Stay Connected</span>
+    <h2 class="reveal d1">Join Our Newsletter</h2>
+    <p class="sub reveal d2">Be the first to hear about new vintages, exclusive events, and club releases.</p>
+    <form class="newsletter-form reveal d3" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'padding:16px 20px;color:var(--black);font-style:italic;\'>Thank you for signing up!</p>';">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================================================
+  CONTACT CTA BAND
+================================================ -->
+<section class="cta-band" id="contact">
+  <div class="container cta-band-inner">
+    <div class="cta-band-text reveal">
+      <span class="tag">Get in Touch</span>
+      <h2>Let's talk wine.</h2>
+    </div>
+    <div class="cta-band-details reveal d1">
+      <a href="mailto:info@lavowineandfood.com" class="cta-detail">
+        <span class="cta-detail-label">Email</span>
+        <span class="cta-detail-value">info@lavowineandfood.com</span>
+      </a>
+      <a href="tel:+27110391167" class="cta-detail">
+        <span class="cta-detail-label">Phone</span>
+        <span class="cta-detail-value">+27 11 039 1167</span>
+      </a>
+      <a href="mailto:info@lavowineandfood.com" class="btn-black">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  FOOTER
+================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <span class="footer-eyebrow">Lavo — Wines of Distinction</span>
+      <div class="footer-headline">It's love, in a bottle.</div>
+      <div class="footer-divider"></div>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="#home">Home</a>
+      <a href="#story">Our Story</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">The Club</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://www.instagram.com/lavowines/" target="_blank" aria-label="Instagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" aria-label="Facebook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <p>© 2026 Lavo Wine and Food. All rights reserved.</p>
+      <p>Not for sale to persons under 18. Please enjoy responsibly.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================
+  SCRIPTS
+================================================ -->
+<script>
+  // Mobile drawer
+  const toggle = document.getElementById('navToggle');
+  const drawer = document.getElementById('mobileDrawer');
+  const drawerClose = document.getElementById('drawerClose');
+  const dLinks = document.querySelectorAll('.d-link');
+
+  toggle.addEventListener('click', () => {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  const closeDrawer = () => {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  drawerClose.addEventListener('click', closeDrawer);
+  dLinks.forEach(l => l.addEventListener('click', closeDrawer));
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ─── MODULE 01: TEXT MASK REVEAL ───────────────────────────────
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate clip-path: inset(100% 0 0 0) → inset(0% 0 0 0)  as user scrolls
+  gsap.to('#maskReveal', {
+    clipPath: 'inset(0% 0 0 0)',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#mask-section',
+      start: 'top top',
+      end: '65% bottom',
+      scrub: 0.4,
+    }
+  });
+
+  // Fade in the subtext label once fill is nearly complete
+  gsap.to('#maskSub', {
+    opacity: 1,
+    scrollTrigger: {
+      trigger: '#mask-section',
+      start: '60% top',
+      end: '75% top',
+      scrub: true
+    }
+  });
+
+  // ─── MODULE 02: STICKY STACK NARRATIVE ─────────────────────────
+  const nCards  = document.querySelectorAll('.n-card');
+  const nStates = document.querySelectorAll('.narrative-state');
+  const nPanel  = document.getElementById('narrativePanel');
+
+  function activateNarrative(num) {
+    nCards.forEach(c  => c.classList.toggle('active',  c.dataset.feature === num));
+    nStates.forEach(s => s.classList.toggle('active', s.dataset.state   === num));
+    if (nPanel) nPanel.classList.add('bar-active');
+  }
+
+  nCards.forEach(card => {
+    ScrollTrigger.create({
+      trigger: card,
+      start: 'top 62%',
+      end:   'bottom 38%',
+      onEnter:     () => activateNarrative(card.dataset.feature),
+      onEnterBack: () => activateNarrative(card.dataset.feature),
+    });
+  });
+
+  // ─── MODULE 16: SPOTLIGHT BORDER CARDS ─────────────────────────
+  const spotGrid = document.getElementById('spotGrid');
+  if (spotGrid) {
+    spotGrid.addEventListener('mousemove', function(e) {
+      spotGrid.querySelectorAll('.spot-card').forEach(card => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top)  + 'px');
+      });
+    });
+  }
+
+  // ─── Active nav highlight on scroll ────────────────────────────
+  const sections = ['home','story','shop','contact'];
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const onScroll = () => {
+    const scrollY = window.scrollY + 100;
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (scrollY >= el.offsetTop && scrollY < el.offsetTop + el.offsetHeight) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+
+</body>
+</html>
