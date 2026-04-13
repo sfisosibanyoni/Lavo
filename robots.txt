@@ -1,0 +1,22 @@
+User-agent: *
+Disallow:
+
+# AI crawlers — allow indexing and citation
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Sitemap and LLMs
+Sitemap: https://www.lavowineandfood.com/sitemap.xml
+LLMs: https://www.lavowineandfood.com/llms.txt

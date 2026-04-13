@@ -3,13 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://www.lavowineandfood.com/" />
+<meta property="og:type"        content="website" />
+<meta property="og:site_name"   content="Lavo Wine and Food" />
+<meta property="og:title"       content="Lavo Wine and Food | South African Winery, Wellington, Western Cape" />
+<meta property="og:description" content="Wines of distinction from Wellington, South Africa. It's love, in a bottle." />
+<meta property="og:image"       content="https://www.lavowineandfood.com/og-home.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url"         content="https://www.lavowineandfood.com/" />
+<meta name="twitter:card"       content="summary_large_image" />
+<meta name="twitter:image"      content="https://www.lavowineandfood.com/og-home.jpg" />
 <title>Lavo Wine and Food — Wines of Distinction</title>
 <meta name="description" content="Lavo Wine and Food — Wines of Distinction. It's love, in a bottle. Wellington, South Africa." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <style>
 
@@ -493,11 +504,18 @@ input, textarea { font-family: inherit; }
 .wine-card:hover::before { transform: scaleX(1); }
 
 /* Image zone */
+.wc-image-link {
+  display: block;
+  flex-shrink: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+.wc-image-link:hover .wc-image { opacity: 0.85; }
 .wc-image {
   position: relative;
   overflow: hidden;
-  flex-shrink: 0;
   height: 240px;
+  transition: opacity 0.25s ease;
 }
 
 /* Wine color gradients */
@@ -1203,6 +1221,80 @@ footer {
   letter-spacing: 0.05em;
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "Organization",
+    "LocalBusiness"
+  ],
+  "@id": "https://www.lavowineandfood.com/#organization",
+  "name": "Lavo Wine and Food",
+  "alternateName": "Lavo Wines",
+  "description": "Lavo Wine and Food is a South African winery based in Wellington, Western Cape. Founded by Lerato Pretorius, Lavo takes its name from Lerato - a Southern African name meaning love.",
+  "url": "https://www.lavowineandfood.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.lavowineandfood.com/logo-gold.png",
+    "width": 200,
+    "height": 80
+  },
+  "image": "https://www.lavowineandfood.com/hero-bg.png",
+  "email": "info@lavowineandfood.com",
+  "telephone": "+27110391167",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Wellington",
+    "addressRegion": "Western Cape",
+    "addressCountry": "ZA"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Lerato Pretorius",
+    "jobTitle": "Founder and Winemaker",
+    "image": "https://www.lavowineandfood.com/lerato-lavo-wines.jpg"
+  },
+  "sameAs": [
+    "https://www.instagram.com/lavowines/",
+    "https://www.facebook.com/p/Lavo-Wines-100063716191888/",
+    "https://x.com/LavoWines"
+  ],
+  "additionalType": "https://www.wikidata.org/wiki/Q156362"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.lavowineandfood.com/#website",
+  "name": "Lavo Wine and Food",
+  "url": "https://www.lavowineandfood.com/",
+  "description": "Wines of Distinction from Wellington, South Africa.",
+  "publisher": {
+    "@id": "https://www.lavowineandfood.com/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.lavowineandfood.com/#webpage",
+  "name": "Lavo Wine and Food - Wines of Distinction",
+  "description": "Lavo Wine and Food - Wines of Distinction. It's love, in a bottle. Wellington, South Africa.",
+  "url": "https://www.lavowineandfood.com/",
+  "isPartOf": {
+    "@id": "https://www.lavowineandfood.com/#website"
+  },
+  "about": {
+    "@id": "https://www.lavowineandfood.com/#organization"
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://www.lavowineandfood.com/hero-bg.png"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -1225,13 +1317,13 @@ footer {
     </ul>
 
     <div class="nav-icons">
-      <a href="https://www.instagram.com/lavowines/" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/lavowines/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" aria-label="Facebook">
+      <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
       </a>
-      <a href="https://x.com/LavoWines" target="_blank" aria-label="X">
+      <a href="https://x.com/LavoWines" target="_blank" rel="noopener noreferrer" aria-label="X">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
     </div>
@@ -1338,12 +1430,14 @@ footer {
 
     <!-- ── MERLOT ── -->
     <article class="wine-card reveal">
+      <a href="merlot.html" class="wc-image-link">
       <div class="wc-image wc-img--merlot">
         <svg class="wc-bottle" viewBox="0 0 100 300" fill="white" xmlns="http://www.w3.org/2000/svg">
           <path d="M42 0h16v36c8 4 22 18 22 54v168c0 12-9 18-20 18H40c-11 0-20-6-20-18V90c0-36 14-50 22-54V0z"/>
         </svg>
-        <span class="wc-label">2022 Vintage · Wellington</span>
+        <span class="wc-label">Wellington</span>
       </div>
+      </a>
       <div class="wc-body">
         <span class="wc-badge wc-badge--red">Red Wine · Wellington</span>
         <h3 class="wc-name">Merlot</h3>
@@ -1361,12 +1455,14 @@ footer {
 
     <!-- ── CABERNET SAUVIGNON ── -->
     <article class="wine-card reveal">
+      <a href="cabernet-sauvignon.html" class="wc-image-link">
       <div class="wc-image wc-img--cabsauv">
         <svg class="wc-bottle" viewBox="0 0 100 300" fill="white" xmlns="http://www.w3.org/2000/svg">
           <path d="M42 0h16v36c8 4 22 18 22 54v168c0 12-9 18-20 18H40c-11 0-20-6-20-18V90c0-36 14-50 22-54V0z"/>
         </svg>
-        <span class="wc-label">2022 Vintage · Wellington</span>
+        <span class="wc-label">Wellington</span>
       </div>
+      </a>
       <div class="wc-body">
         <span class="wc-badge wc-badge--red">Red Wine · Wellington</span>
         <h3 class="wc-name">Cabernet Sauvignon</h3>
@@ -1383,6 +1479,7 @@ footer {
 
     <!-- ── SPARKLING BRUT ── -->
     <article class="wine-card reveal">
+      <a href="sparkling-brut.html" class="wc-image-link">
       <div class="wc-image wc-img--sparkling">
         <div class="wc-bubbles">
           <span class="wc-bubble" style="width:5px;height:5px;left:18%;bottom:8%;--dur:2.6s;--delay:0s;"></span>
@@ -1398,6 +1495,7 @@ footer {
         </svg>
         <span class="wc-label">Brut · NV · South Africa</span>
       </div>
+      </a>
       <div class="wc-body">
         <span class="wc-badge wc-badge--sparkling">Sparkling Wine · Brut</span>
         <h3 class="wc-name">Sparkling Brut</h3>
@@ -1414,12 +1512,14 @@ footer {
 
     <!-- ── CHARDONNAY ── -->
     <article class="wine-card reveal">
+      <a href="chardonnay.html" class="wc-image-link">
       <div class="wc-image wc-img--chardonnay">
         <svg class="wc-bottle" viewBox="0 0 100 300" fill="white" xmlns="http://www.w3.org/2000/svg">
           <path d="M42 0h16v36c8 4 22 18 22 54v168c0 12-9 18-20 18H40c-11 0-20-6-20-18V90c0-36 14-50 22-54V0z"/>
         </svg>
-        <span class="wc-label">2022 Vintage · Wellington</span>
+        <span class="wc-label">Wellington</span>
       </div>
+      </a>
       <div class="wc-body">
         <span class="wc-badge">White Wine · Wellington</span>
         <h3 class="wc-name">Chardonnay</h3>
@@ -1436,12 +1536,14 @@ footer {
 
     <!-- ── SAUVIGNON BLANC ── -->
     <article class="wine-card reveal">
+      <a href="sauvignon-blanc.html" class="wc-image-link">
       <div class="wc-image wc-img--sauvblanc">
         <svg class="wc-bottle" viewBox="0 0 100 300" fill="white" xmlns="http://www.w3.org/2000/svg">
           <path d="M42 0h16v36c8 4 22 18 22 54v168c0 12-9 18-20 18H40c-11 0-20-6-20-18V90c0-36 14-50 22-54V0z"/>
         </svg>
-        <span class="wc-label">2022 Vintage · Wellington</span>
+        <span class="wc-label">Wellington</span>
       </div>
+      </a>
       <div class="wc-body">
         <span class="wc-badge">White Wine · Wellington</span>
         <h3 class="wc-name">Sauvignon Blanc</h3>
@@ -1458,12 +1560,14 @@ footer {
 
     <!-- ── CHENIN BLANC ── -->
     <article class="wine-card reveal">
+      <a href="chenin-blanc.html" class="wc-image-link">
       <div class="wc-image wc-img--chenin">
         <svg class="wc-bottle" viewBox="0 0 100 300" fill="white" xmlns="http://www.w3.org/2000/svg">
           <path d="M42 0h16v36c8 4 22 18 22 54v168c0 12-9 18-20 18H40c-11 0-20-6-20-18V90c0-36 14-50 22-54V0z"/>
         </svg>
-        <span class="wc-label">2022 Vintage · Wellington</span>
+        <span class="wc-label">Wellington</span>
       </div>
+      </a>
       <div class="wc-body">
         <span class="wc-badge">White Wine · Wellington</span>
         <h3 class="wc-name">Chenin Blanc</h3>
@@ -1542,13 +1646,13 @@ footer {
     </nav>
 
     <div class="footer-social">
-      <a href="https://www.instagram.com/lavowines/" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/lavowines/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       </a>
-      <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" aria-label="Facebook">
+      <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
       </a>
-      <a href="https://x.com/LavoWines" target="_blank" aria-label="X">
+      <a href="https://x.com/LavoWines" target="_blank" rel="noopener noreferrer" aria-label="X">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
     </div>
