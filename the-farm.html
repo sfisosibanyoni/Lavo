@@ -41,7 +41,7 @@ a { color: inherit; text-decoration: none; }
   display: flex; align-items: center; justify-content: space-between;
   height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 40px;
 }
-.logo { display: flex; align-items: center; flex-shrink: 0; }
+.logo { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
 .logo-img { height: 48px; width: auto; display: block; }
 .nav-links {
   display: flex; align-items: center; gap: 32px;
@@ -84,15 +84,52 @@ a { color: inherit; text-decoration: none; }
 
 /* ── HERO IMAGE ──────────────────────────────────────────────── */
 .farm-hero {
+  position: relative;
   margin-top: 64px;
-  height: 58vh;
-  min-height: 320px;
+  min-height: 60vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.farm-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(5,3,2,0.82) 0%, rgba(8,5,3,0.60) 35%,
+      rgba(10,6,4,0.30) 65%, rgba(5,3,2,0.08) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.35) 100%);
 }
 .farm-hero img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center 55%;
+  position: absolute;
+  inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center center;
+  display: block; z-index: 0;
+}
+.farm-hero-inner {
+  position: relative; z-index: 2;
+  text-align: center; padding: 100px 40px 96px;
+  max-width: 720px;
+}
+.farm-hero-eyebrow {
   display: block;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.36em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 24px;
+}
+.farm-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(56px, 8vw, 100px);
+  font-style: italic; font-weight: 400;
+  color: var(--white); letter-spacing: -0.02em; margin-bottom: 28px;
+}
+.farm-hero-rule {
+  width: 36px; height: 1px; background: var(--gold); margin: 0 auto 28px;
+}
+.farm-hero-lead {
+  font-size: 15px; line-height: 1.9; color: rgba(255,255,255,0.72);
+  max-width: 560px; margin: 0 auto;
 }
 
 /* ── "THE FARM" INTRO ────────────────────────────────────────── */
@@ -104,14 +141,12 @@ a { color: inherit; text-decoration: none; }
   max-width: 1200px; margin: 0 auto; padding: 0 40px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
 }
-.farm-intro h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--black);
-  margin-bottom: 28px;
+.farm-intro-label {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
 }
 .farm-intro-rule {
   width: 36px; height: 1px;
@@ -357,13 +392,22 @@ footer {
 <!-- HERO IMAGE -->
 <div class="farm-hero">
   <img src="farm-harvest.jpg" alt="Harvest at Lavo Wines Farm, Wellington" fetchpriority="high" />
+  <div class="farm-hero-inner reveal">
+    <span class="farm-hero-eyebrow">Lavo Wines</span>
+    <h1>The Farm</h1>
+    <div class="farm-hero-rule"></div>
+    <p class="farm-hero-lead">
+      Wellington, Western Cape — nestled between the Hawekwa and Groenberg
+      mountain ranges, where our wines are born from the land.
+    </p>
+  </div>
 </div>
 
 <!-- THE FARM INTRO -->
 <section class="farm-intro">
   <div class="farm-intro-inner">
     <div>
-      <h1 class="reveal">The Farm</h1>
+      <span class="farm-intro-label reveal">Wellington, Western Cape</span>
       <div class="farm-intro-rule reveal d1"></div>
     </div>
     <div>

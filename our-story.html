@@ -90,12 +90,27 @@ a { color: inherit; text-decoration: none; }
    STORY HERO
 ============================================================ */
 .story-hero {
+  position: relative;
   margin-top: 64px;
-  background: var(--dark);
+  min-height: 60vh;
+  background: url('story-hero.png') center center / cover no-repeat;
   padding: 100px 40px 96px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.story-hero-inner { max-width: 720px; margin: 0 auto; }
+.story-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(5,3,2,0.88) 0%, rgba(8,5,3,0.70) 35%,
+      rgba(10,6,4,0.55) 65%, rgba(5,3,2,0.40) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.4) 100%);
+  z-index: 0;
+}
+.story-hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
 .story-hero-eyebrow {
   display: block;
   font-size: 10px; font-weight: 500; letter-spacing: 0.36em;
@@ -110,7 +125,7 @@ a { color: inherit; text-decoration: none; }
   width: 36px; height: 1px; background: var(--gold); margin: 0 auto 28px;
 }
 .story-hero-lead {
-  font-size: 15px; line-height: 1.9; color: rgba(255,255,255,0.6);
+  font-size: 15px; line-height: 1.9; color: rgba(255,255,255,0.72);
   max-width: 560px; margin: 0 auto;
 }
 
@@ -380,7 +395,7 @@ footer {
 <header class="story-hero">
   <div class="story-hero-inner reveal">
     <span class="story-hero-eyebrow">Lavo Wines</span>
-    <h1>Our<br/>Story</h1>
+    <h1>Our Story</h1>
     <div class="story-hero-rule"></div>
     <p class="story-hero-lead">
       Lavo was born from a simple but enduring belief — that wine has the power
