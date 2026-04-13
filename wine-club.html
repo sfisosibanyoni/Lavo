@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Join the Lavo Wine Club. Choose Connoisseur at R850 or Exclusive at R1200 per month — curated wine deliveries, member discounts, exclusive events, and first access to new releases." />
+<link rel="canonical" href="https://www.lavowineandfood.com/wine-club.html" />
+<meta property="og:type"        content="website" />
+<meta property="og:site_name"   content="Lavo Wine and Food" />
+<meta property="og:title"       content="Lavo Wine Club | Curated Wine Deliveries — Wellington, South Africa" />
+<meta property="og:description" content="Join the Lavo Wine Club. Monthly curated deliveries, exclusive member discounts, private events, and first access to new releases." />
+<meta property="og:image"       content="https://www.lavowineandfood.com/og-wine-club.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url"         content="https://www.lavowineandfood.com/wine-club.html" />
+<meta name="twitter:card"       content="summary_large_image" />
+<meta name="twitter:image"      content="https://www.lavowineandfood.com/og-wine-club.jpg" />
+<title>Wine Club — Lavo Wine and Food</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.lavowineandfood.com/wine-club.html#webpage",
+  "name": "Lavo Wine Club — Curated Wine Deliveries",
+  "description": "Join the Lavo Wine Club. Choose Connoisseur at R850 or Exclusive at R1200 per month — curated wine deliveries, member discounts, exclusive events, and first access to new releases.",
+  "url": "https://www.lavowineandfood.com/wine-club.html",
+  "isPartOf": { "@id": "https://www.lavowineandfood.com/#website" },
+  "about":     { "@id": "https://www.lavowineandfood.com/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",      "item": "https://www.lavowineandfood.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Wine Club", "item": "https://www.lavowineandfood.com/wine-club.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Lavo Wine Club — Connoisseur",
+  "description": "Monthly curated selection of 2–3 Lavo wines, 10% off all purchases, invitations to member events, and first access to new releases.",
+  "brand": { "@type": "Brand", "name": "Lavo Wine and Food", "@id": "https://www.lavowineandfood.com/#organization" },
+  "offers": { "@type": "Offer", "price": "850", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "url": "https://www.lavowineandfood.com/wine-club-join.html" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Lavo Wine Club — Exclusive",
+  "description": "Monthly curated selection of 4–6 Lavo wines, 15% off all purchases, priority access to exclusive events, personal wine consultation, and free delivery.",
+  "brand": { "@type": "Brand", "name": "Lavo Wine and Food", "@id": "https://www.lavowineandfood.com/#organization" },
+  "offers": { "@type": "Offer", "price": "1200", "priceCurrency": "ZAR", "availability": "https://schema.org/InStock", "url": "https://www.lavowineandfood.com/wine-club-join.html" }
+}
+</script>
+<style>
+/* ============================================================
+   TOKENS
+============================================================ */
+:root {
+  --black:      #111111;
+  --dark:       #1c1c1c;
+  --body-text:  #4a4a4a;
+  --muted:      #888888;
+  --off-white:  #faf9f7;
+  --white:      #ffffff;
+  --gold:       #b8975a;
+  --gold-light: #d4b87a;
+  --gold-pale:  #f2ead8;
+  --border:     #e0deda;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: var(--body-text);
+  background: var(--white);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; line-height: 1.15; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   NAV
+============================================================ */
+.nav {
+  position: fixed; inset: 0 0 auto; z-index: 200;
+  background: var(--black); padding: 0;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 40px;
+}
+.logo { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
+.logo-img { height: 48px; width: auto; display: block; }
+.nav-links {
+  display: flex; align-items: center; gap: 32px;
+  position: absolute; left: 50%; transform: translateX(-50%);
+  list-style: none; padding: 0; margin: 0;
+}
+.nav-links a {
+  font-size: 11px; font-weight: 400; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.65); transition: color .2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--gold); }
+.nav-icons { display: flex; align-items: center; gap: 18px; color: rgba(255,255,255,0.65); }
+.nav-icons a { color: inherit; transition: color .2s; display: flex; align-items: center; }
+.nav-icons a:hover { color: var(--white); }
+.nav-toggle {
+  display: none; background: none; border: none; color: var(--white);
+  flex-direction: column; gap: 5px; padding: 4px; cursor: pointer;
+}
+.nav-toggle span { display: block; width: 22px; height: 1.5px; background: currentColor; }
+.mobile-drawer {
+  position: fixed; inset: 0; background: var(--black); z-index: 199;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  transform: translateX(-100%); transition: transform .4s cubic-bezier(0.22,1,0.36,1);
+}
+.mobile-drawer.open { transform: none; }
+.mobile-drawer a {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 36px; color: var(--white); transition: color .2s;
+}
+.mobile-drawer a:hover { color: var(--gold); }
+.mobile-drawer-close {
+  position: absolute; top: 20px; right: 24px;
+  background: none; border: none; color: var(--white);
+  font-size: 20px; cursor: pointer; opacity: 0.6;
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.club-hero {
+  position: relative;
+  margin-top: 64px;
+  min-height: 60vh;
+  background: url('hero-bg.png') center center / cover no-repeat;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 100px 40px 96px;
+}
+.club-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5,3,2,0.92) 0%, rgba(8,5,3,0.82) 40%,
+      rgba(8,5,3,0.72) 70%, rgba(5,3,2,0.88) 100%);
+  z-index: 0;
+}
+.club-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+.club-hero-eyebrow {
+  display: block;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.42em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.club-hero h1 {
+  font-size: clamp(72px, 10vw, 120px);
+  font-style: italic; color: var(--white);
+  letter-spacing: -0.02em; line-height: 1; margin-bottom: 32px;
+}
+.club-hero-rule { width: 36px; height: 1px; background: var(--gold); margin: 0 auto 28px; }
+.club-hero-lead {
+  font-size: 15px; line-height: 1.9; color: rgba(255,255,255,0.68);
+  max-width: 520px; margin: 0 auto;
+}
+
+/* ============================================================
+   JOIN SECTION
+============================================================ */
+.join-section {
+  padding: 100px 0 80px;
+  background: var(--white);
+}
+.section-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+}
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-eyebrow {
+  display: block;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.38em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.section-header h2 {
+  font-size: clamp(28px, 3.5vw, 44px); color: var(--black);
+  margin-bottom: 20px;
+}
+.section-header p {
+  font-size: 14.5px; line-height: 1.9; color: var(--body-text);
+  max-width: 600px; margin: 0 auto;
+}
+
+/* Tier cards */
+.tier-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.tier-card {
+  border: 1px solid var(--border);
+  background: var(--white);
+  display: flex; flex-direction: column;
+  transition: box-shadow .3s, transform .3s;
+}
+.tier-card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+  transform: translateY(-4px);
+}
+.tier-card--exclusive {
+  border-color: var(--black);
+  background: var(--off-white);
+}
+.tier-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: #f5f3ef;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.tier-card--exclusive .tier-image { background: #ede9e2; }
+.tier-image-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  color: rgba(184,151,90,0.35);
+}
+.tier-image-placeholder svg { opacity: 0.4; }
+.tier-image-placeholder span {
+  font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(0,0,0,0.25);
+}
+.tier-body {
+  padding: 32px 28px 36px;
+  display: flex; flex-direction: column; flex: 1;
+}
+.tier-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; color: var(--black); margin-bottom: 20px;
+}
+.tier-features {
+  list-style: none; padding: 0; margin: 0 0 28px; flex: 1;
+}
+.tier-features li {
+  font-size: 13px; line-height: 1.7; color: var(--body-text);
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+  display: flex; align-items: baseline; gap: 10px;
+}
+.tier-features li::before {
+  content: '';
+  display: inline-block; width: 4px; height: 4px;
+  border-radius: 50%; background: var(--gold); flex-shrink: 0;
+  position: relative; top: -1px;
+}
+.tier-price-row {
+  display: flex; align-items: baseline; gap: 4px; margin-bottom: 24px;
+}
+.tier-currency {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px; color: var(--black);
+}
+.tier-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px; line-height: 1; color: var(--black); letter-spacing: -0.02em;
+}
+.tier-per {
+  font-size: 11px; letter-spacing: 0.12em; color: var(--muted);
+  text-transform: uppercase;
+}
+.tier-btn {
+  display: block; width: 100%; padding: 14px 24px;
+  background: var(--black); color: var(--white);
+  font-family: 'Jost', sans-serif; font-size: 11px;
+  font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  text-align: center; cursor: pointer;
+  border: 1px solid var(--black);
+  transition: background .25s, color .25s;
+}
+.tier-btn:hover { background: var(--gold); border-color: var(--gold); }
+.tier-card--exclusive .tier-btn { background: var(--black); }
+
+/* ============================================================
+   BENEFITS — ALTERNATING SPLIT
+============================================================ */
+.benefits-section { background: var(--white); padding: 0; }
+.benefit-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+}
+.benefit-row--reverse { direction: rtl; }
+.benefit-row--reverse > * { direction: ltr; }
+.benefit-img {
+  position: relative; overflow: hidden;
+  background: #2a2420;
+}
+.benefit-img-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; color: rgba(255,255,255,0.15);
+}
+.benefit-img-placeholder span {
+  font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+}
+.benefit-img img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.benefit-content {
+  background: var(--dark);
+  padding: 72px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.benefit-content--light {
+  background: var(--off-white);
+}
+.benefit-eyebrow {
+  display: block;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.38em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.benefit-content h2 {
+  font-size: clamp(24px, 2.8vw, 36px);
+  color: var(--white); margin-bottom: 20px;
+}
+.benefit-content--light h2 { color: var(--black); }
+.benefit-content p {
+  font-size: 14px; line-height: 1.95;
+  color: rgba(255,255,255,0.6); max-width: 400px;
+}
+.benefit-content--light p { color: var(--body-text); }
+
+/* ============================================================
+   HOW IT WORKS
+============================================================ */
+.how-section {
+  padding: 100px 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+.how-header { text-align: center; margin-bottom: 72px; }
+.how-header h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  color: var(--black); margin-bottom: 24px;
+}
+.how-header p {
+  font-size: 14.5px; line-height: 1.9; color: var(--body-text);
+  max-width: 560px; margin: 0 auto;
+}
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+.how-step {
+  padding: 40px 32px;
+  border-right: 1px solid var(--border);
+}
+.how-step:last-child { border-right: none; }
+.how-step-num {
+  display: block;
+  font-size: 10px; letter-spacing: 0.3em;
+  color: var(--gold); margin-bottom: 20px;
+}
+.how-step h3 {
+  font-size: 16px; color: var(--black); margin-bottom: 12px;
+}
+.how-step p {
+  font-size: 13px; line-height: 1.85; color: var(--body-text);
+}
+
+/* ============================================================
+   FEATURE BOXES
+============================================================ */
+.features-section {
+  background: var(--gold-pale);
+  border-top: 1px solid rgba(184,151,90,0.2);
+  padding: 80px 0;
+}
+.features-grid {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+}
+.feature-box {
+  background: var(--gold-pale);
+  padding: 48px 40px;
+  text-align: center;
+}
+.feature-icon {
+  width: 48px; height: 48px;
+  margin: 0 auto 20px;
+  color: var(--gold);
+}
+.feature-label {
+  display: block;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.36em;
+  text-transform: uppercase; color: var(--black); margin-bottom: 12px;
+}
+.feature-box p {
+  font-size: 13px; line-height: 1.85; color: var(--body-text);
+  max-width: 240px; margin: 0 auto;
+}
+
+/* ============================================================
+   CTA BAND
+============================================================ */
+.club-cta {
+  background: var(--dark);
+  padding: 96px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.club-cta-eyebrow {
+  display: block;
+  font-size: 9px; letter-spacing: 0.4em;
+  text-transform: uppercase; color: rgba(184,151,90,0.5); margin-bottom: 24px;
+}
+.club-cta h2 {
+  font-size: clamp(32px, 5vw, 64px);
+  font-style: italic; color: var(--white);
+  letter-spacing: -0.02em; margin-bottom: 36px;
+}
+.club-cta-btn {
+  display: inline-block;
+  padding: 16px 48px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  transition: background .25s;
+}
+.club-cta-btn:hover { background: var(--gold-light); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 56px 0 36px;
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.footer-brand {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 40px;
+}
+.footer-nav { display: flex; gap: 32px; }
+.footer-nav a {
+  font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4); transition: color .2s;
+}
+.footer-nav a:hover { color: var(--white); }
+.footer-social { display: flex; gap: 16px; }
+.footer-social a {
+  color: rgba(255,255,255,0.4); transition: color .2s;
+  display: flex; align-items: center;
+}
+.footer-social a:hover { color: var(--gold); }
+.footer-divider {
+  width: 100%; height: 1px;
+  background: rgba(255,255,255,0.06); margin-bottom: 28px;
+}
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p {
+  font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 1024px) {
+  .tier-grid { grid-template-columns: 1fr 1fr; max-width: 100%; }
+  .how-steps { grid-template-columns: 1fr 1fr; }
+  .how-step { border-bottom: 1px solid var(--border); }
+  .how-step:nth-child(2n) { border-right: none; }
+  .how-step:nth-last-child(-n+2) { border-bottom: none; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-icons { display: none; }
+  .nav-toggle { display: flex; }
+  .tier-grid { grid-template-columns: 1fr; max-width: 480px; }
+  .benefit-row { grid-template-columns: 1fr; }
+  .benefit-row--reverse { direction: ltr; }
+  .benefit-img { min-height: 280px; }
+  .benefit-content { padding: 48px 32px; }
+  .how-steps { grid-template-columns: 1fr 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .footer-brand { flex-direction: column; gap: 24px; align-items: flex-start; }
+  .footer-nav { flex-wrap: wrap; gap: 20px; }
+  .footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+@media (max-width: 520px) {
+  .section-inner, .how-section .section-inner { padding: 0 20px; }
+  .features-grid { padding: 0 20px; }
+  .benefit-content { padding: 40px 24px; }
+  .how-steps { grid-template-columns: 1fr; }
+  .how-step { border-right: none; }
+  .tier-grid { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================
+  NAVIGATION
+================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Lavo Wine and Food">
+      <img src="logo-gold.png" alt="Lavo Wines" class="logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="the-farm.html">The Farm</a></li>
+      <li><a href="index.html#wines">Our Wines</a></li>
+      <li><a href="wine-club.html" class="active">Wine Club</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="https://www.instagram.com/lavowines/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://x.com/LavoWines" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <button class="mobile-drawer-close" id="drawerClose">✕</button>
+  <a href="index.html">Home</a>
+  <a href="our-story.html">Our Story</a>
+  <a href="the-farm.html">The Farm</a>
+  <a href="index.html#wines">Our Wines</a>
+  <a href="wine-club.html">Wine Club</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- ================================================
+  HERO
+================================================ -->
+<header class="club-hero">
+  <div class="club-hero-inner reveal">
+    <h1>Lavo Wine Club</h1>
+    <div class="club-hero-rule"></div>
+    <p class="club-hero-lead">
+      A membership designed for those who believe great wine deserves to be
+      experienced, shared, and savoured — delivered to your door, curated with love.
+    </p>
+  </div>
+</header>
+
+<!-- ================================================
+  JOIN THE CLUB
+================================================ -->
+<section class="join-section">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Membership</span>
+      <h2>Join the Club</h2>
+      <p>
+        The Lavo Wine Club offers two carefully crafted membership tiers, each delivering
+        a curated selection of our finest wines alongside exclusive member benefits.
+        Choose the tier that suits your palate and lifestyle, and let us do the rest.
+        Ready to join? <a href="wine-club-join.html" style="color:var(--gold);border-bottom:1px solid currentColor;">Complete your application here.</a>
+      </p>
+    </div>
+
+    <div class="tier-grid">
+
+      <!-- Connoisseur -->
+      <div class="tier-card reveal">
+        <div class="tier-image">
+          <div class="tier-image-placeholder">
+            <svg width="40" height="120" viewBox="0 0 40 120" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M16 4 h8 v12 c8 4 12 16 12 28 v64 a4 4 0 01-4 4 H8 a4 4 0 01-4-4 V44 c0-12 4-24 12-28 V4z"/>
+              <line x1="4" y1="60" x2="36" y2="60"/>
+            </svg>
+            <span>Bottle image</span>
+          </div>
+        </div>
+        <div class="tier-body">
+          <h3 class="tier-name">Connoisseur</h3>
+          <ul class="tier-features">
+            <li>Choice of 2 or 3 bottles per delivery</li>
+            <li>10% off all wine purchases</li>
+            <li>Invitations to member events</li>
+            <li>First access to new releases</li>
+            <li>Monthly tasting notes and pairing guide</li>
+          </ul>
+          <div class="tier-price-row">
+            <span class="tier-currency">R</span>
+            <span class="tier-price">850</span>
+            <span class="tier-per">/ month</span>
+          </div>
+          <a href="wine-club-join.html?tier=connoisseur" class="tier-btn">Join Now</a>
+        </div>
+      </div>
+
+      <!-- Exclusive -->
+      <div class="tier-card tier-card--exclusive reveal d1">
+        <div class="tier-image">
+          <div class="tier-image-placeholder">
+            <svg width="40" height="120" viewBox="0 0 40 120" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M16 4 h8 v12 c8 4 12 16 12 28 v64 a4 4 0 01-4 4 H8 a4 4 0 01-4-4 V44 c0-12 4-24 12-28 V4z"/>
+              <line x1="4" y1="60" x2="36" y2="60"/>
+            </svg>
+            <span>Bottle image</span>
+          </div>
+        </div>
+        <div class="tier-body">
+          <h3 class="tier-name">Exclusive</h3>
+          <ul class="tier-features">
+            <li>Choice of 4 or 6 bottles per delivery</li>
+            <li>15% off all wine purchases</li>
+            <li>Priority access to exclusive member events</li>
+            <li>First access to new releases</li>
+            <li>Monthly tasting notes and pairing guide</li>
+            <li>Personal wine consultation</li>
+            <li>Complimentary delivery</li>
+          </ul>
+          <div class="tier-price-row">
+            <span class="tier-currency">R</span>
+            <span class="tier-price">1200</span>
+            <span class="tier-per">/ month</span>
+          </div>
+          <a href="wine-club-join.html?tier=exclusive" class="tier-btn">Join Now</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  BENEFITS — ALTERNATING SPLIT ROWS
+================================================ -->
+<section class="benefits-section">
+
+  <!-- Row 1: Image left, text right -->
+  <div class="benefit-row reveal">
+    <div class="benefit-img">
+      <div class="benefit-img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        <span>Member benefit image</span>
+      </div>
+    </div>
+    <div class="benefit-content">
+      <span class="benefit-eyebrow">Member Benefit</span>
+      <h2>Discounts on Purchases</h2>
+      <p>
+        As a Lavo Wine Club member, every bottle you purchase — whether inside or outside
+        your monthly delivery — comes with an exclusive member discount. Connoisseur
+        members enjoy 10% off all purchases. Exclusive members receive 15% off.
+        Your love of wine should never cost more than it has to.
+      </p>
+    </div>
+  </div>
+
+  <!-- Row 2: Text left, image right -->
+  <div class="benefit-row benefit-row--reverse reveal">
+    <div class="benefit-img">
+      <div class="benefit-img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <span>Events image</span>
+      </div>
+    </div>
+    <div class="benefit-content benefit-content--light">
+      <span class="benefit-eyebrow" style="color:var(--gold)">Member Benefit</span>
+      <h2>Member Exclusive Events</h2>
+      <p>
+        Member Wine Club Days are reserved exclusively for our club members — intimate
+        gatherings at the estate where you get to meet the winemaker, explore the
+        production process, and taste wines before they are available to the public.
+        Exclusive tier members receive priority invitations and reserved seating.
+      </p>
+    </div>
+  </div>
+
+  <!-- Row 3: Image left, text right -->
+  <div class="benefit-row reveal">
+    <div class="benefit-img">
+      <div class="benefit-img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>New releases image</span>
+      </div>
+    </div>
+    <div class="benefit-content">
+      <span class="benefit-eyebrow">Member Benefit</span>
+      <h2>Latest Wine Releases</h2>
+      <p>
+        Wine Club members are the first to know — and the first to taste. When Lavo
+        releases a new vintage or a new varietal, members receive advance notice and
+        exclusive first-order allocation before wines are made available to the
+        general public. Some releases are available to members only.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================
+  HOW IT WORKS
+================================================ -->
+<section class="how-section">
+  <div class="section-inner">
+
+    <div class="how-header reveal">
+      <span class="section-eyebrow">Wine Club</span>
+      <h2>How it works</h2>
+      <p>
+        Joining the Lavo Wine Club is simple. We handle the curation, the packaging,
+        and the delivery — all you need to do is choose your tier and enjoy the wine.
+      </p>
+    </div>
+
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <span class="how-step-num">01</span>
+        <h3>Choose your Tier</h3>
+        <p>Select the Connoisseur or Exclusive membership tier based on the number of bottles
+        and benefits that best suit your lifestyle.</p>
+      </div>
+      <div class="how-step reveal d1">
+        <span class="how-step-num">02</span>
+        <h3>Complete your Profile</h3>
+        <p>Fill in your delivery details and wine preferences so we can personalise your
+        monthly selection to your palate.</p>
+      </div>
+      <div class="how-step reveal d2">
+        <span class="how-step-num">03</span>
+        <h3>Receive your Wines</h3>
+        <p>Your curated Lavo selection is delivered to your door each month in our
+        signature packaging — ready to open, pour, and enjoy.</p>
+      </div>
+      <div class="how-step reveal d3">
+        <span class="how-step-num">04</span>
+        <h3>Discover &amp; Share</h3>
+        <p>Read your monthly tasting notes, explore pairing suggestions, and stay connected
+        to exclusive events, new releases, and member-only experiences.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================
+  FEATURE BOXES
+================================================ -->
+<section class="features-section">
+  <div class="features-grid">
+
+    <div class="feature-box reveal">
+      <div class="feature-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 8h8v10c6 3 10 11 10 20H10C10 29 14 21 20 18V8z"/>
+          <line x1="10" y1="28" x2="38" y2="28"/>
+        </svg>
+      </div>
+      <span class="feature-label">Curated Selection</span>
+      <p>Each monthly delivery is handpicked from the Lavo range — a thoughtful
+      combination of varietals chosen to complement the season and your palate.</p>
+    </div>
+
+    <div class="feature-box reveal d1">
+      <div class="feature-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="18"/>
+          <path d="M24 14v10l6 6"/>
+        </svg>
+      </div>
+      <span class="feature-label">Always a Member</span>
+      <p>Your membership rolls month to month with no lock-in. Pause, skip,
+      or cancel at any time — your benefits remain active for the current billing period.</p>
+    </div>
+
+    <div class="feature-box reveal d2">
+      <div class="feature-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4z"/>
+          <path d="M16 20s2-4 8-4 8 4 8 4M16 28s2 4 8 4 8-4 8-4"/>
+        </svg>
+      </div>
+      <span class="feature-label">Dedicated Service</span>
+      <p>Our team is on hand to assist with delivery queries, preference updates,
+      and anything else you need. Reach us at info@lavowineandfood.com.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================
+  CTA BAND
+================================================ -->
+<section class="club-cta">
+  <span class="club-cta-eyebrow">Lavo — Wines of Distinction</span>
+  <h2>It's love, in a bottle.</h2>
+  <br/><br/>
+  <a href="wine-club-join.html" class="club-cta-btn">Become a Member</a>
+</section>
+
+<!-- ================================================
+  FOOTER
+================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo-gold.png" alt="Lavo Wines" style="height:48px;width:auto;display:block;" />
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="the-farm.html">The Farm</a>
+        <a href="index.html#wines">Our Wines</a>
+        <a href="wine-club.html">Wine Club</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/lavowines/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/Lavo-Wines-100063716191888/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://x.com/LavoWines" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lavo Wine and Food. All rights reserved.</p>
+      <p>Not for sale to persons under 18. Please enjoy responsibly.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const toggle = document.getElementById('navToggle');
+const drawer = document.getElementById('mobileDrawer');
+const close  = document.getElementById('drawerClose');
+if (toggle) toggle.addEventListener('click', () => drawer.classList.add('open'));
+if (close)  close.addEventListener('click',  () => drawer.classList.remove('open'));
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

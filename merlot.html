@@ -60,12 +60,21 @@ nav {
 .nav-back:hover { color: var(--gold); }
 .nav-logo { display:flex; align-items:center; text-decoration:none; }
 .nav-logo-img { height:40px; width:auto; display:block; }
+.nav-right {
+  display: flex; align-items: center; gap: 28px;
+}
 .nav-cta {
   font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500;
   letter-spacing: 0.22em; text-transform: uppercase;
   color: rgba(255,255,255,0.55); transition: color .2s;
 }
 .nav-cta:hover { color: var(--gold); }
+.nav-club {
+  font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); transition: color .2s;
+}
+.nav-club:hover { color: var(--white); }
 
 /* HERO */
 .hero {
@@ -407,7 +416,9 @@ footer {
   <a href="index.html" class="nav-logo">
     <img src="logo-gold.png" alt="Lavo Wines" class="nav-logo-img" />
   </a>
-  <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  <div class="nav-right">
+    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -557,6 +568,7 @@ footer {
       <a href="index.html#wines">Our Wines</a>
       <a href="our-story.html">Our Story</a>
       <a href="the-farm.html">The Farm</a>
+      <a href="wine-club.html">Wine Club</a>
       <a href="index.html#contact">Contact</a>
     </div>
     <span class="footer-copy">&copy; 2026 Lavo Wine and Food</span>

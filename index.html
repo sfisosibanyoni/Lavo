@@ -702,6 +702,75 @@ input, textarea { font-family: inherit; }
 /* ============================================================
    NEWSLETTER
 ============================================================ */
+/* ============================================================
+   WINE CLUB TEASER
+============================================================ */
+.club-teaser {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.club-teaser::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(184,151,90,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.club-teaser-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
+  min-height: 580px;
+}
+.club-teaser-content {
+  position: relative; z-index: 1;
+  padding: 100px 72px 100px 60px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.club-teaser-eyebrow {
+  display: block;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.42em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+}
+.club-teaser-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 400;
+  font-size: clamp(32px, 3.8vw, 52px);
+  color: var(--white); line-height: 1.1; margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+.club-teaser-content p {
+  font-size: 14.5px; line-height: 1.95;
+  color: rgba(255,255,255,0.58); margin-bottom: 40px;
+}
+.club-teaser-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; align-self: flex-start;
+  border: 1px solid rgba(184,151,90,0.5);
+  color: var(--gold);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  transition: background .25s, border-color .25s, color .25s;
+}
+.club-teaser-btn:hover {
+  background: var(--gold); border-color: var(--gold); color: var(--white);
+}
+.club-teaser-btn svg { transition: transform .25s; }
+.club-teaser-btn:hover svg { transform: translateX(4px); }
+.club-teaser-image {
+  position: relative; overflow: hidden;
+}
+.club-teaser-image img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.club-teaser-image::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--black) 0%, transparent 28%);
+  pointer-events: none;
+}
+
 .newsletter {
   padding: 100px 0;
   background: var(--white);
@@ -762,7 +831,7 @@ footer {
 }
 .footer-top {
   text-align: center;
-  margin-bottom: 52px;
+  margin-bottom: 24px;
 }
 .footer-eyebrow {
   display: block;
@@ -885,6 +954,72 @@ footer {
   transition: color .2s;
 }
 .cta-detail:hover .cta-detail-value { color: var(--gold); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 72px;
+  align-items: start;
+}
+.contact-info { padding-top: 8px; }
+.contact-info p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.9;
+  margin-bottom: 36px;
+}
+.contact-details { display: flex; flex-direction: column; gap: 20px; }
+.contact-form {
+  background: #4a0d18;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 40px 36px;
+}
+.contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.contact-field label {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #b8975a;
+}
+.contact-field input,
+.contact-field textarea {
+  background: var(--white);
+  border: 1px solid #e0deda;
+  color: #111111;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color .2s;
+  resize: none;
+}
+.contact-field input::placeholder,
+.contact-field textarea::placeholder { color: #aaa; }
+.contact-field input:focus,
+.contact-field textarea:focus { border-color: #b8975a; }
+.contact-submit {
+  width: 100%;
+  padding: 15px;
+  background: transparent;
+  border: 1px solid #3d0a18;
+  color: #3d0a18;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .25s, color .25s;
+  margin-top: 4px;
+}
+.contact-submit:hover { background: #3d0a18; color: #fff; }
+@media (max-width: 960px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+}
 
 /* ============================================================
    MODULE 01 — TEXT MASK REVEAL
@@ -1122,6 +1257,12 @@ footer {
   .narrative-visual { position: relative; top: 0; }
   .narrative-panel { aspect-ratio: 16/9; }
 }
+@media (max-width: 768px) {
+  .club-teaser-inner { grid-template-columns: 1fr; }
+  .club-teaser-content { padding: 72px 40px; }
+  .club-teaser-image { min-height: 420px; order: -1; }
+  .club-teaser-image::after { background: linear-gradient(to top, var(--black) 0%, transparent 30%); }
+}
 @media (max-width: 620px) {
   .container { padding: 0 20px; }
   .nav-links { display: none; }
@@ -1134,6 +1275,7 @@ footer {
   .mask-section { min-height: 150vh; }
   .cta-band-inner { flex-direction: column; align-items: flex-start; }
   .cta-band-details { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .club-teaser-content { padding: 64px 20px; }
 }
 
 /* ============================================================
@@ -1145,7 +1287,7 @@ footer {
 }
 .footer-top {
   text-align: center;
-  margin-bottom: 52px;
+  margin-bottom: 24px;
 }
 .footer-logo-wrap { display:flex; align-items:center; justify-content:center; margin-bottom:28px; }
 .footer-logo-img { height:72px; width:auto; display:block; }
@@ -1313,6 +1455,7 @@ footer {
       <li><a href="our-story.html">Our Story</a></li>
       <li><a href="the-farm.html">The Farm</a></li>
       <li><a href="#wines">Our Wines</a></li>
+      <li><a href="wine-club.html">Wine Club</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
@@ -1341,6 +1484,7 @@ footer {
   <a href="our-story.html" class="d-link">Our Story</a>
   <a href="the-farm.html" class="d-link">The Farm</a>
   <a href="#wines" class="d-link">Our Wines</a>
+  <a href="wine-club.html" class="d-link">Wine Club</a>
   <a href="#contact" class="d-link">Contact</a>
 </div>
 
@@ -1587,6 +1731,35 @@ footer {
 
 
 <!-- ================================================
+  WINE CLUB TEASER
+================================================ -->
+<section class="club-teaser">
+  <div class="club-teaser-inner">
+
+    <div class="club-teaser-content reveal">
+      <span class="club-teaser-eyebrow">Lavo Wine Club</span>
+      <h2>Wine delivered<br/>with love, monthly.</h2>
+      <p>
+        Join the Lavo Wine Club and receive a curated selection of our finest wines
+        delivered to your door each month — along with member discounts, exclusive
+        event invitations, and first access to new releases.
+      </p>
+      <a href="wine-club.html" class="club-teaser-btn">
+        Discover More
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="club-teaser-image">
+      <img src="lavo-wine-club-1.jpg" alt="Two women smiling and holding a Lavo wine gift basket" loading="lazy">
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================
   NEWSLETTER
 ================================================ -->
 <section class="newsletter">
@@ -1602,24 +1775,50 @@ footer {
 </section>
 
 <!-- ================================================
-  CONTACT CTA BAND
+  CONTACT
 ================================================ -->
 <section class="cta-band" id="contact">
-  <div class="container cta-band-inner">
-    <div class="cta-band-text reveal">
-      <span class="tag">Get in Touch</span>
-      <h2>Let's talk wine.</h2>
-    </div>
-    <div class="cta-band-details reveal d1">
-      <a href="mailto:info@lavowineandfood.com" class="cta-detail">
-        <span class="cta-detail-label">Email</span>
-        <span class="cta-detail-value">info@lavowineandfood.com</span>
-      </a>
-      <a href="tel:+27110391167" class="cta-detail">
-        <span class="cta-detail-label">Phone</span>
-        <span class="cta-detail-value">+27 11 039 1167</span>
-      </a>
-      <a href="mailto:info@lavowineandfood.com" class="btn-black">Get in Touch</a>
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info reveal">
+        <span class="tag">Get in Touch</span>
+        <h2 style="font-size:clamp(30px,3.2vw,46px);color:var(--white);margin-top:10px;margin-bottom:20px;line-height:1.15;">Let's talk wine.</h2>
+        <p>Whether you're looking to stock our wines, collaborate on an event, or simply want to know more about Lavo — we'd love to hear from you.</p>
+        <div class="contact-details">
+          <a href="mailto:info@lavowineandfood.com" class="cta-detail">
+            <span class="cta-detail-label">Email</span>
+            <span class="cta-detail-value">info@lavowineandfood.com</span>
+          </a>
+          <a href="tel:+27110391167" class="cta-detail">
+            <span class="cta-detail-label">Phone</span>
+            <span class="cta-detail-value">+27 11 039 1167</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal d1">
+        <div class="contact-form-row">
+          <div class="contact-field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" placeholder="Your name" />
+          </div>
+          <div class="contact-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" placeholder="your@email.com" />
+          </div>
+        </div>
+        <div class="contact-field">
+          <label for="cf-subject">Subject</label>
+          <input type="text" id="cf-subject" placeholder="How can we help?" />
+        </div>
+        <div class="contact-field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" rows="5" placeholder="Tell us more…"></textarea>
+        </div>
+        <button class="contact-submit" onclick="this.closest('.contact-form').innerHTML='<p style=\'padding:20px 0;font-family:Playfair Display,serif;font-style:italic;font-size:17px;color:#3d0a18;\'>Thank you — we\'ll be in touch soon.</p>'">Send Message</button>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1634,7 +1833,6 @@ footer {
         <img src="logo-gold.png" alt="Lavo Wines" class="footer-logo-img" />
       </div>
       <div class="footer-headline">It's love, in a bottle.</div>
-      <div class="footer-divider"></div>
     </div>
 
     <nav class="footer-nav">
@@ -1642,6 +1840,7 @@ footer {
       <a href="our-story.html">Our Story</a>
       <a href="the-farm.html">The Farm</a>
       <a href="#wines">Our Wines</a>
+      <a href="wine-club.html">Wine Club</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -1668,6 +1867,8 @@ footer {
   SCRIPTS
 ================================================ -->
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+
   // Mobile drawer
   const toggle = document.getElementById('navToggle');
   const drawer = document.getElementById('mobileDrawer');
@@ -1799,6 +2000,8 @@ footer {
     });
   };
   window.addEventListener('scroll', onScroll, { passive: true });
+
+}); // end DOMContentLoaded
 </script>
 
 </body>

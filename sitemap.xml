@@ -23,6 +23,20 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Wine Club -->
+  <url>
+    <loc>https://www.lavowineandfood.com/wine-club.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.lavowineandfood.com/wine-club-join.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Wine detail pages -->
   <url>
     <loc>https://www.lavowineandfood.com/merlot.html</loc>

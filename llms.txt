@@ -27,11 +27,22 @@ Lavo produces six wines. Each page includes full tasting notes, technical analys
 
 - [Lavo Sparkling Brut](https://www.lavowineandfood.com/sparkling-brut.html): A dry sparkling wine with citrus and nutty aromas on the nose, followed by watermelon and kiwi on the palate, and a smooth buttery finish. Produced at Orange River Cellars from Northern Cape vineyards (Green Kalahari). Grapes harvested at 21.5°Brix. Alcohol 13.0%. Total acidity 5.31 g/L. Residual sugar 8.2 g/L. Serve at 6–8°C. Cellaring potential 1–3 years.
 
+## Wine Club
+
+Lavo Wine and Food operates a monthly wine subscription club with two membership tiers:
+
+- **Connoisseur (R850/month):** 2–3 bottles per delivery, 10% off all purchases, member event invitations, first access to new releases, monthly tasting notes.
+- **Exclusive (R1200/month):** 4–6 bottles per delivery, 15% off all purchases, priority event access, personal wine consultation, complimentary delivery.
+
+Members receive curated monthly selections handpicked from the Lavo range. Memberships roll month-to-month with no lock-in. Apply at: https://www.lavowineandfood.com/wine-club-join.html
+
 ## Key Pages
 
 - [Home](https://www.lavowineandfood.com/): Brand overview, wine range, and contact information.
 - [Our Story](https://www.lavowineandfood.com/our-story.html): Founding philosophy, winemaker profile, and brand values.
 - [The Farm](https://www.lavowineandfood.com/the-farm.html): Estate details, terroir, location, and farm photography.
+- [Wine Club](https://www.lavowineandfood.com/wine-club.html): Monthly wine subscription — Connoisseur (R850) and Exclusive (R1200) tiers.
+- [Join the Wine Club](https://www.lavowineandfood.com/wine-club-join.html): Membership registration form.
 
 ## Brand Identity
 
