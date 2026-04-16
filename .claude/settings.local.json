@@ -11,7 +11,14 @@
       "Bash(python -)",
       "Bash(python \"C:/Users/Sfiso/Downloads/inject_schema.py\")",
       "Bash(grep:*)",
-      "Bash(python fix_nav.py)"
+      "Bash(python fix_nav.py)",
+      "Bash(npm install *)",
+      "Bash(claude-code-router --help)",
+      "Bash(npm root *)",
+      "Bash(node \"$\\(npm root -g\\)/@musistudio/claude-code-router/dist/cli.js\" --help)",
+      "Read(//c/Users/Sfiso/.claude-code-router/**)",
+      "Bash(/c/Users/Sfiso/AppData/Roaming/npm/ccr status *)",
+      "Bash(/c/Users/Sfiso/AppData/Roaming/npm/ccr code *)"
     ]
   }
 }

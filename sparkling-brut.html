@@ -72,12 +72,12 @@ nav {
 
 .hero {
   min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-  background: linear-gradient(150deg, var(--wine-a) 0%, var(--wine-mid) 50%, var(--wine-b) 100%);
+  background: url('lavo-brut.png') center top / cover no-repeat;
   position: relative; overflow: hidden;
 }
 .hero::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 70% at 25% 50%, rgba(184,151,90,0.06), transparent 65%);
+  background: linear-gradient(to right, rgba(5,3,2,0.92) 0%, rgba(5,3,2,0.72) 35%, rgba(5,3,2,0.28) 68%, rgba(5,3,2,0.04) 100%);
   pointer-events: none; z-index: 1;
 }
 .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 140px 64px 80px 72px; position: relative; z-index: 3; }
@@ -320,13 +320,7 @@ footer { background: var(--dark); padding: 36px 0; border-top: 1px solid rgba(25
       </div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-bottle-wrap">
-      <svg class="hero-bottle" viewBox="0 0 100 300" fill="white">
-        <path d="M43 0h14v38c6 3 18 16 18 52v168c0 12-8 18-19 18H44c-11 0-19-6-19-18V90c0-36 12-49 18-52V0z"/>
-      </svg>
-    </div>
-  </div>
+  <div class="hero-right"></div>
   <div class="scroll-cue">
     <span class="scroll-cue-line"></span>
     Scroll to explore
@@ -337,17 +331,8 @@ footer { background: var(--dark); padding: 36px 0; border-top: 1px solid rgba(25
   <div class="container">
     <div class="tasting-grid">
       <div class="wine-image reveal">
-        <div class="wine-image-bubbles">
-          <span class="wine-image-bubble" style="width:6px;height:6px;left:25%;bottom:10%;--dur:3s;--delay:0s;"></span>
-          <span class="wine-image-bubble" style="width:4px;height:4px;left:40%;bottom:6%;--dur:2.7s;--delay:0.6s;"></span>
-          <span class="wine-image-bubble" style="width:8px;height:8px;left:55%;bottom:14%;--dur:3.3s;--delay:1.1s;"></span>
-          <span class="wine-image-bubble" style="width:5px;height:5px;left:68%;bottom:8%;--dur:2.5s;--delay:0.3s;"></span>
-          <span class="wine-image-bubble" style="width:4px;height:4px;left:35%;bottom:20%;--dur:3.1s;--delay:1.5s;"></span>
-        </div>
-        <svg class="wine-image-bottle" viewBox="0 0 100 300" fill="white">
-          <path d="M43 0h14v38c6 3 18 16 18 52v168c0 12-8 18-19 18H44c-11 0-19-6-19-18V90c0-36 12-49 18-52V0z"/>
-        </svg>
-        <span class="wine-image-tag">Lavo Sparkling Brut &middot; NV</span>
+        <img src="brut-bottle.png" alt="Lavo Sparkling Brut bottle" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;z-index:1;" />
+        <span class="wine-image-tag" style="z-index:5;">Lavo Sparkling Brut &middot; NV</span>
       </div>
       <div class="tasting-body">
         <span class="eyebrow reveal">The Bottle</span>
