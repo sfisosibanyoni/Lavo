@@ -14,8 +14,8 @@
 <meta property="og:url"         content="https://www.lavowineandfood.com/" />
 <meta name="twitter:card"       content="summary_large_image" />
 <meta name="twitter:image"      content="https://www.lavowineandfood.com/og-home.jpg" />
-<title>Lavo Wine and Food — Wines of Distinction</title>
-<meta name="description" content="Lavo Wine and Food — Wines of Distinction. It's love, in a bottle. Wellington, South Africa." />
+<title>Lavo Wine and Food | Wines of Distinction</title>
+<meta name="description" content="Lavo Wine and Food: Wines of Distinction. It's love, in a bottle. Wellington, South Africa." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -687,6 +687,69 @@ input, textarea { font-family: inherit; }
 }
 .wc-link:hover { gap: 16px; color: var(--gold); }
 
+/* Special Edition subsection */
+.se-section {
+  padding: 80px 0 0;
+  background: var(--white);
+}
+.se-intro {
+  margin-bottom: 48px;
+}
+.se-intro h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--black);
+  margin-top: 10px;
+}
+.se-intro p {
+  font-size: 15px;
+  color: var(--body-text);
+  max-width: 480px;
+  margin-top: 12px;
+  line-height: 1.8;
+}
+.se-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 60px;
+}
+.se-bento {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  background: transparent;
+  padding: 0 40px 80px;
+}
+
+/* SE cards — width follows the image, no gradient background */
+.se-bento .wine-card {
+  width: 500px;
+  flex-shrink: 0;
+  border: 1px solid var(--gold);
+}
+.se-bento .wc-image {
+  height: auto !important;
+  overflow: visible;
+  background: transparent !important;
+}
+.se-bento .wc-image img {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: unset !important;
+  padding: 0 !important;
+  inset: auto !important;
+}
+
+/* SE badge variant */
+.wc-badge--se {
+  border-color: rgba(184,151,90,0.5);
+  color: var(--gold);
+}
+
 /* Responsive — tablet */
 @media (max-width: 960px) {
   .wines-section { padding: 80px 0 0; }
@@ -695,6 +758,8 @@ input, textarea { font-family: inherit; }
 @media (max-width: 680px) {
   .wines-bento { grid-template-columns: 1fr; }
   .wc-image { height: 200px; }
+  .se-bento { padding: 0 20px 60px; }
+  .se-bento .wine-card { width: 100%; max-width: 500px; }
 }
 
 /* ============================================================
@@ -1499,7 +1564,7 @@ footer {
   </div>
   <div class="container hero-content">
     <div class="hero-text reveal">
-      <span class="hero-eyebrow">Lavo — Wines of Distinction</span>
+      <span class="hero-eyebrow">Lavo · Wines of Distinction</span>
       <h1>it's love<br/>in a bottle</h1>
     </div>
   </div>
@@ -1521,7 +1586,7 @@ footer {
       <span class="brand-intro-eyebrow reveal">Welcome to Lavo Wines</span>
       <h2 class="brand-intro-heading reveal d1">Created<br/>from love.</h2>
       <div class="brand-intro-rule reveal d2"></div>
-      <p class="brand-intro-body reveal d2">Lavo wine originates from the name Lerato, a Southern African name which means love. Lavo Wines is about pleasure, enjoyment, and connecting people around the world — the one thread connecting people of different backgrounds to share congenial association over a glass of wine.</p>
+      <p class="brand-intro-body reveal d2">Lavo wine originates from the name Lerato, a Southern African name which means love. Lavo Wines is about pleasure, enjoyment, and connecting people around the world. The thread connecting people of different backgrounds, sharing congenial association over a glass of wine.</p>
       <blockquote class="brand-intro-quote reveal d3">Our wine has been created from love,<br/>to be enjoyed with love.</blockquote>
       <a href="our-story.html" class="btn-outline reveal d3">Discover Our Story &rarr;</a>
     </div>
@@ -1564,7 +1629,7 @@ footer {
     <div class="wines-intro">
       <span class="tag reveal">Our Collection</span>
       <h2 class="reveal">The Wines</h2>
-      <p class="reveal d1">Noble varietals from our Wellington estate. Each bottle a labour of love — expressive of our unique terroir and three centuries of South African winemaking heritage.</p>
+      <p class="reveal d1">Noble varietals from our Wellington estate. Each bottle a labour of love, expressive of our unique terroir and three centuries of South African winemaking heritage.</p>
     </div>
   </div>
 
@@ -1575,14 +1640,13 @@ footer {
       <a href="merlot.html" class="wc-image-link">
       <div class="wc-image wc-img--merlot">
         <img src="lavo-merlot.png" alt="Lavo Merlot bottle with grapes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
-        <span class="wc-label">Wellington</span>
       </div>
       </a>
       <div class="wc-body">
         <span class="wc-badge wc-badge--red">Red Wine · Wellington</span>
         <h3 class="wc-name">Merlot</h3>
         <div class="wc-rule"></div>
-        <p class="wc-note">Intense flavours of ripe blackberry, red berry and blackcurrant — with hints of mint and violet, and subtle tones of dark chocolate and coffee. Well integrated French oak with a smooth palate and long lingering finish.</p>
+        <p class="wc-note">Intense flavours of ripe blackberry, red berry and blackcurrant, with hints of mint and violet, and subtle tones of dark chocolate and coffee. Well integrated French oak with a smooth palate and long lingering finish.</p>
         <div class="wc-tags">
           <span class="wc-tag">Blackberry</span>
           <span class="wc-tag">Dark Chocolate</span>
@@ -1598,7 +1662,6 @@ footer {
       <a href="cabernet-sauvignon.html" class="wc-image-link">
       <div class="wc-image wc-img--cabsauv">
         <img src="lavo-cab-sav.png" alt="Lavo Cabernet Sauvignon bottle with grapes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
-        <span class="wc-label">Wellington</span>
       </div>
       </a>
       <div class="wc-body">
@@ -1629,7 +1692,6 @@ footer {
           <span class="wc-bubble" style="width:3px;height:3px;left:42%;bottom:3%;--dur:3.0s;--delay:1.6s;"></span>
           <span class="wc-bubble" style="width:5px;height:5px;left:58%;bottom:20%;--dur:2.2s;--delay:0.4s;"></span>
         </div>
-        <span class="wc-label">Brut · NV · South Africa</span>
       </div>
       </a>
       <div class="wc-body">
@@ -1651,7 +1713,6 @@ footer {
       <a href="chardonnay.html" class="wc-image-link">
       <div class="wc-image wc-img--chardonnay">
         <img src="lavo-chardonnay.png" alt="Lavo Chardonnay bottle with grapes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
-        <span class="wc-label">Wellington</span>
       </div>
       </a>
       <div class="wc-body">
@@ -1673,7 +1734,6 @@ footer {
       <a href="sauvignon-blanc.html" class="wc-image-link">
       <div class="wc-image wc-img--sauvblanc">
         <img src="lavo-sauv-blanc.png" alt="Lavo Sauvignon Blanc bottle with grapes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
-        <span class="wc-label">Wellington</span>
       </div>
       </a>
       <div class="wc-body">
@@ -1695,14 +1755,13 @@ footer {
       <a href="chenin-blanc.html" class="wc-image-link">
       <div class="wc-image wc-img--chenin">
         <img src="lavo-chenin-blanc.png" alt="Lavo Chenin Blanc bottle with grapes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
-        <span class="wc-label">Wellington</span>
       </div>
       </a>
       <div class="wc-body">
         <span class="wc-badge">White Wine · Wellington</span>
         <h3 class="wc-name">Chenin Blanc</h3>
         <div class="wc-rule"></div>
-        <p class="wc-note">A versatile, food-friendly white. Pairs beautifully with shellfish, pork, ham and vinaigrette salads — and can tame the heat of spicy dishes.</p>
+        <p class="wc-note">A versatile, food-friendly white. Pairs beautifully with shellfish, pork, ham and vinaigrette salads, and can tame the heat of spicy dishes.</p>
         <div class="wc-tags">
           <span class="wc-tag">Versatile</span>
           <span class="wc-tag">Fresh</span>
@@ -1713,6 +1772,67 @@ footer {
     </article>
 
   </div>
+
+  <!-- Special Edition subsection -->
+  <div class="se-section">
+    <div class="container">
+      <div class="se-divider"></div>
+      <div class="se-intro">
+        <span class="tag reveal">Limited Release</span>
+        <h3 class="reveal d1">Special Edition Wines</h3>
+        <p class="reveal d2">Crafted in small batches, our Special Edition range pushes the boundaries of our Wellington terroir. Bold expressions reserved for those who seek something truly distinct.</p>
+      </div>
+    </div>
+
+    <div class="se-bento">
+
+      <!-- ── SPECIAL EDITION PINOTAGE ── -->
+      <article class="wine-card reveal">
+        <div class="wc-image-link">
+          <div class="wc-image wc-img--se-pinotage">
+            <img src="lavo-se-pinotage.png" alt="Lavo Special Edition Pinotage bottle" style="display:block;width:100%;height:auto;" />
+          </div>
+        </div>
+        <div class="wc-body">
+          <span class="wc-badge wc-badge--se">Special Edition · Red Wine</span>
+          <h3 class="wc-name">Special Edition Pinotage</h3>
+          <div class="wc-rule"></div>
+          <p class="wc-note">South Africa's signature varietal at its most expressive: bold layers of dark plum, smoked meat and roasted coffee, with a velvety texture and a long, warming finish. A limited release that celebrates the very best of our Wellington estate.</p>
+          <div class="wc-tags">
+            <span class="wc-tag">Dark Plum</span>
+            <span class="wc-tag">Smoked Meat</span>
+            <span class="wc-tag">Roasted Coffee</span>
+            <span class="wc-tag">Velvety</span>
+          </div>
+          <a href="#contact" class="wc-link">Enquire Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- ── SPECIAL EDITION CABERNET SAUVIGNON ── -->
+      <article class="wine-card reveal">
+        <div class="wc-image-link">
+          <div class="wc-image wc-img--se-cabsauv">
+            <img src="lavo-se-cab-sav.png" alt="Lavo Special Edition Cabernet Sauvignon bottle" style="display:block;width:100%;height:auto;" />
+          </div>
+        </div>
+        <div class="wc-body">
+          <span class="wc-badge wc-badge--se">Special Edition · Red Wine</span>
+          <h3 class="wc-name">Special Edition Cabernet Sauvignon</h3>
+          <div class="wc-rule"></div>
+          <p class="wc-note">An elevated expression of our flagship red, with concentrated blackcurrant and cedar, layered with tobacco leaf and fine-grained tannins. Extended barrel maturation in premium French oak delivers a structured, age-worthy wine of exceptional depth.</p>
+          <div class="wc-tags">
+            <span class="wc-tag">Blackcurrant</span>
+            <span class="wc-tag">Cedar</span>
+            <span class="wc-tag">Tobacco</span>
+            <span class="wc-tag">French Oak</span>
+          </div>
+          <a href="#contact" class="wc-link">Enquire Now &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
 </section>
 
 
@@ -1727,7 +1847,7 @@ footer {
       <h2>Wine delivered<br/>with love, monthly.</h2>
       <p>
         Join the Lavo Wine Club and receive a curated selection of our finest wines
-        delivered to your door each month — along with member discounts, exclusive
+        delivered to your door each month, with member discounts, exclusive
         event invitations, and first access to new releases.
       </p>
       <a href="wine-club.html" class="club-teaser-btn">
@@ -1770,7 +1890,7 @@ footer {
       <div class="contact-info reveal">
         <span class="tag">Get in Touch</span>
         <h2 style="font-size:clamp(30px,3.2vw,46px);color:var(--white);margin-top:10px;margin-bottom:20px;line-height:1.15;">Let's talk wine.</h2>
-        <p>Whether you're looking to stock our wines, collaborate on an event, or simply want to know more about Lavo — we'd love to hear from you.</p>
+        <p>Whether you're looking to stock our wines, collaborate on an event, or simply want to know more about Lavo, we'd love to hear from you.</p>
         <div class="contact-details">
           <a href="mailto:info@lavowineandfood.com" class="cta-detail">
             <span class="cta-detail-label">Email</span>
@@ -1802,7 +1922,7 @@ footer {
           <label for="cf-message">Message</label>
           <textarea id="cf-message" rows="5" placeholder="Tell us more…"></textarea>
         </div>
-        <button class="contact-submit" onclick="this.closest('.contact-form').innerHTML='<p style=\'padding:20px 0;font-family:Playfair Display,serif;font-style:italic;font-size:17px;color:#3d0a18;\'>Thank you — we\'ll be in touch soon.</p>'">Send Message</button>
+        <button class="contact-submit" onclick="this.closest('.contact-form').innerHTML='<p style=\'padding:20px 0;font-family:Playfair Display,serif;font-style:italic;font-size:17px;color:#3d0a18;\'>Thank you. We\'ll be in touch soon.</p>'">Send Message</button>
       </div>
 
     </div>
