@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Nestled between the Hawekwa and Groenberg mountain ranges in Wellington, Western Cape, where Lavo wines are born from the land." />
+<meta name="description" content="Lavo wines are crafted at two exceptional South African estates: Anura Vineyards on the Simonsberg foothills, and Orange River Cellars in the Northern Cape." />
 <link rel="canonical" href="https://www.lavowineandfood.com/the-farm.html" />
 <meta property="og:type"        content="website" />
 <meta property="og:site_name"   content="Lavo Wine and Food" />
-<meta property="og:title"       content="The Farm | Lavo Wine and Food, Wellington, Western Cape" />
-<meta property="og:description" content="Nestled between the Hawekwa and Groenberg mountain ranges in Wellington, where our wines are born from the land." />
+<meta property="og:title"       content="The Farm | Lavo Wine and Food" />
+<meta property="og:description" content="Lavo wines are born from two distinct terroirs: Anura Vineyards on the Simonsberg foothills, and Orange River Cellars in the Northern Cape." />
 <meta property="og:image"       content="https://www.lavowineandfood.com/og-the-farm.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -159,6 +159,13 @@ a { color: inherit; text-decoration: none; }
   font-size: 9px; font-weight: 500;
   letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 16px;
+}
+.farm-intro-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-style: italic; font-weight: 400;
+  color: var(--black); line-height: 1.1;
+  margin-bottom: 24px;
 }
 .farm-intro-rule {
   width: 36px; height: 1px;
@@ -331,6 +338,15 @@ footer {
   font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.05em;
 }
 
+/* ── FARM DIVIDER ────────────────────────────────────────────── */
+.farm-section-divider {
+  max-width: 1200px; margin: 0 auto;
+  border: none; border-top: 1px solid var(--border);
+}
+.farm-details--alt {
+  background: var(--off-white);
+}
+
 /* ── REVEAL ──────────────────────────────────────────────────── */
 .reveal {
   opacity: 0; transform: translateY(24px);
@@ -364,7 +380,7 @@ footer {
   "@type": "WebPage",
   "@id": "https://www.lavowineandfood.com/the-farm.html#webpage",
   "name": "The Farm - Lavo Wine and Food",
-  "description": "Nestled between the Hawekwa and Groenberg mountain ranges in Wellington, Western Cape - where Lavo wines are born from the land.",
+  "description": "Lavo wines are crafted at two exceptional South African estates: Anura Vineyards on the Simonsberg foothills, and Orange River Cellars in the Northern Cape.",
   "url": "https://www.lavowineandfood.com/the-farm.html",
   "isPartOf": {
     "@id": "https://www.lavowineandfood.com/#website"
@@ -397,21 +413,40 @@ footer {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Place",
-  "name": "Lavo Wine and Food Estate",
-  "description": "The Lavo Wine and Food estate is located in the Wellington valley, Western Cape, South Africa. Nestled between the Hawekwa and Groenberg mountain ranges, the estate produces wines of distinction from noble varietals.",
+  "@type": "ItemList",
+  "name": "Lavo Wine Production Partners",
+  "description": "Lavo wines are produced at two partner estates in South Africa: Anura Vineyards in the Western Cape and Orange River Cellars in the Northern Cape.",
   "url": "https://www.lavowineandfood.com/the-farm.html",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Wellington",
-    "addressRegion": "Western Cape",
-    "addressCountry": "ZA"
-  },
-  "containedInPlace": {
-    "@type": "AdministrativeArea",
-    "name": "Wellington Wine Valley"
-  },
-  "hasMap": "https://maps.google.com/?q=Wellington,Western+Cape,South+Africa"
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Place",
+        "name": "Anura Vineyards",
+        "description": "Positioned on the foothills of the Simonsberg Mountains, Anura Vineyards is owned and run by Tymen, Jenny and Lance Bouma. The estate produces all Lavo varietals except the Sparkling Brut.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Western Cape",
+          "addressCountry": "ZA"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Place",
+        "name": "Orange River Cellars",
+        "description": "Located along the Orange River in the Northern Cape, Orange River Cellars produces the Lavo Sparkling Brut.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Northern Cape",
+          "addressCountry": "ZA"
+        }
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -461,14 +496,14 @@ footer {
 
 <!-- HERO IMAGE -->
 <div class="farm-hero">
-  <img src="farm-harvest.jpg" alt="Harvest at Lavo Wines Farm, Wellington" fetchpriority="high" />
+  <img src="farm-harvest.jpg" alt="Harvest at Lavo Wines, South Africa" fetchpriority="high" />
   <div class="farm-hero-inner reveal">
     <span class="farm-hero-eyebrow">Lavo Wines</span>
     <h1>The Farm</h1>
     <div class="farm-hero-rule"></div>
     <p class="farm-hero-lead">
-      Wellington, Western Cape, nestled between the Hawekwa and Groenberg
-      mountain ranges, where our wines are born from the land.
+      Two extraordinary South African terroirs. One unwavering commitment
+      to craft. This is where every bottle of Lavo begins.
     </p>
   </div>
 </div>
@@ -477,59 +512,102 @@ footer {
 <section class="farm-intro">
   <div class="farm-intro-inner">
     <div>
-      <span class="farm-intro-label reveal">Wellington, Western Cape</span>
-      <div class="farm-intro-rule reveal d1"></div>
+      <span class="farm-intro-label reveal">Our Production Partners</span>
+      <h2 class="farm-intro-heading reveal d1">Two Farms,<br/>One Vision</h2>
+      <div class="farm-intro-rule reveal d2"></div>
     </div>
     <div>
       <p class="reveal">
-        The Lavo Wines Farm is situated in the heart of Wellington in the Western Cape,
-        one of South Africa's most celebrated winemaking valleys. Surrounded by the
-        dramatic Hawekwa and Groenberg mountain ranges, the estate enjoys a distinctive
-        terroir shaped by warm days, cool evenings, and rich, well-drained valley soils.
+        Lavo wines are born from a partnership with two exceptional South African
+        estates, each chosen for the distinct character it brings to the range.
+        Anura Vineyards, set against the foothills of the Simonsberg Mountains in
+        the Western Cape, produces all of our red and white varietals.
       </p>
       <p class="reveal d1">
-        Wellington has been at the forefront of South African viticulture since the
-        17th century. It is a region of remarkable natural beauty and deep winemaking
-        heritage, a heritage we are proud to honour in every bottle of Lavo wine we
-        produce. From vine to bottle, we let the land speak.
+        Our Sparkling Brut finds its home at Orange River Cellars in the Northern
+        Cape, where the sun-drenched banks of the Orange River yield grapes of
+        remarkable freshness and vitality. Two terroirs, one vision: wines that
+        speak honestly of the land they come from.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ANURA VINEYARDS -->
+<section class="farm-details">
+  <div class="farm-details-inner">
+    <span class="farm-details-eyebrow reveal">Western Cape</span>
+    <h2 class="reveal d1">Anura Vineyards</h2>
+    <div class="farm-details-rule reveal d1"></div>
+    <p class="reveal d2">
+      Positioned on the foothills of the Simonsberg Mountains, Anura Vineyards is
+      owned and run by Tymen, Jenny and Lance Bouma. The estate boasts a wide
+      variety of soils, slopes and microclimates, a canvas ideally suited to the
+      handcrafted wines it produces. Passion for red wine runs deep here, with
+      plantings of Mourvédre, Petit Verdot, Grenache, Pinot Noir, Sangiovese and
+      Malbec alongside more classic, locally grown varietals. In the vineyards,
+      Tymen strives to utilise practices that best suit each varietal: canopy
+      management, yield control, trellising and irrigation are all considered with
+      care. It is this attentiveness to the vine that sets the foundation for
+      every Lavo red and white.
+    </p>
+    <div class="farm-facts reveal d2">
+      <div class="farm-fact-row">
+        <span class="farm-fact-label">Location</span>
+        <span class="farm-fact-value">Simonsberg foothills, Western Cape, South Africa</span>
+      </div>
+      <div class="farm-fact-row">
+        <span class="farm-fact-label">Owners</span>
+        <span class="farm-fact-value">Tymen, Jenny and Lance Bouma</span>
+      </div>
+      <div class="farm-fact-row">
+        <span class="farm-fact-label">Climate</span>
+        <span class="farm-fact-value">Mediterranean · warm days · cool nights</span>
+      </div>
+      <div class="farm-fact-row">
+        <span class="farm-fact-label">Lavo Varietals</span>
+        <span class="farm-fact-value">Merlot · Cabernet Sauvignon · Chardonnay · Sauvignon Blanc · Chenin Blanc</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PRODUCTION IMAGE -->
 <div class="farm-production-img">
-  <img src="farm-cellar.jpg" alt="Wine production and maturation at Lavo Wines Farm" />
+  <img src="farm-cellar.jpg" alt="Wine production and maturation at Anura Vineyards" />
 </div>
 
-<!-- LAVO WINES FARM DETAILS -->
-<section class="farm-details">
+<!-- ORANGE RIVER CELLARS -->
+<section class="farm-details farm-details--alt">
   <div class="farm-details-inner">
-    <span class="farm-details-eyebrow reveal">The Estate</span>
-    <h2 class="reveal d1">Lavo Wines Farm</h2>
+    <span class="farm-details-eyebrow reveal">Northern Cape</span>
+    <h2 class="reveal d1">Orange River Cellars</h2>
     <div class="farm-details-rule reveal d1"></div>
     <p class="reveal d2">
-      Our Wellington estate produces six distinctive varietals that together reflect
-      the full breadth of what this remarkable valley can offer. Every season brings
-      new nuances, new opportunities to listen to the land and craft wines worthy
-      of the Lavo name.
+      Deep in the Green Kalahari, where the Orange River winds through sun-baked
+      red-sand landscapes, Orange River Cellars has been crafting wines of character
+      since 1965. The Northern Cape's extreme climate: long, intensely sunny days
+      and cold desert nights, produces grapes with a natural exuberance and
+      vivacity that lend themselves perfectly to sparkling wine. It is here that
+      the Lavo Sparkling Brut is born: fresh, celebratory, and distinctly South
+      African in spirit.
     </p>
     <div class="farm-facts reveal d2">
       <div class="farm-fact-row">
         <span class="farm-fact-label">Location</span>
-        <span class="farm-fact-value">Wellington, Western Cape, South Africa</span>
+        <span class="farm-fact-value">Orange River, Northern Cape, South Africa</span>
       </div>
       <div class="farm-fact-row">
-        <span class="farm-fact-label">Farm</span>
-        <span class="farm-fact-value">Anura Vineyards, Wellington</span>
+        <span class="farm-fact-label">Region</span>
+        <span class="farm-fact-value">Green Kalahari</span>
       </div>
       <div class="farm-fact-row">
         <span class="farm-fact-label">Climate</span>
-        <span class="farm-fact-value">Mediterranean, warm days, cool nights</span>
+        <span class="farm-fact-value">Semi-arid · intense sun · cold desert nights</span>
       </div>
       <div class="farm-fact-row">
-        <span class="farm-fact-label">Varietals</span>
-        <span class="farm-fact-value">Merlot · Cabernet Sauvignon · Chardonnay · Sauvignon Blanc · Chenin Blanc · Sparkling Brut</span>
+        <span class="farm-fact-label">Lavo Varietals</span>
+        <span class="farm-fact-value">Sparkling Brut</span>
       </div>
     </div>
   </div>
@@ -545,7 +623,7 @@ footer {
         <img src="farm-barrel.jpg" alt="Wine barrels at Lavo Wines Farm" />
       </div>
       <div class="gallery-item reveal d1">
-        <img src="farm-large.jpg" alt="Lavo Wines Farm, Wellington" />
+        <img src="farm-large.jpg" alt="Anura Vineyards, Simonsberg, Western Cape" />
       </div>
       <div class="gallery-item reveal d1">
         <img src="farm-process.jpg" alt="Wine processing at Lavo Wines Farm" />
