@@ -1,0 +1,60 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/lavowyho/public_html/
+
+    - /bin/cp brut-bottle.png $DEPLOYPATH
+    - /bin/cp cab-sav-bottle.png $DEPLOYPATH
+    - /bin/cp cabernet-sauvignon.html $DEPLOYPATH
+    - /bin/cp chardonnay-bottle.png $DEPLOYPATH
+    - /bin/cp chardonnay.html $DEPLOYPATH
+    - /bin/cp chenin-blanc-bottle.png $DEPLOYPATH
+    - /bin/cp chenin-blanc.html $DEPLOYPATH
+    - /bin/cp discounts-on-purchases.png $DEPLOYPATH
+    - /bin/cp exclusive-events.png $DEPLOYPATH
+    - /bin/cp farm-barrel.jpg $DEPLOYPATH
+    - /bin/cp farm-cellar.jpg $DEPLOYPATH
+    - /bin/cp farm-harvest.jpg $DEPLOYPATH
+    - /bin/cp farm-harvest2.jpg $DEPLOYPATH
+    - /bin/cp farm-large.jpg $DEPLOYPATH
+    - /bin/cp farm-process.jpg $DEPLOYPATH
+    - /bin/cp farm-vineyard.jpg $DEPLOYPATH
+    - /bin/cp hero-bg-updated.jpg $DEPLOYPATH
+    - /bin/cp hero-bg.jpg $DEPLOYPATH
+    - /bin/cp hero-bg.png $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp latest-wine-releases.png $DEPLOYPATH
+    - /bin/cp lavo-bottles.png $DEPLOYPATH
+    - /bin/cp lavo-brut.png $DEPLOYPATH
+    - /bin/cp lavo-cab-sav.png $DEPLOYPATH
+    - /bin/cp lavo-cabernet-sauvignon-tasting-notes.pdf $DEPLOYPATH
+    - /bin/cp lavo-chardonnay-tasting-notes.pdf $DEPLOYPATH
+    - /bin/cp lavo-chardonnay.png $DEPLOYPATH
+    - /bin/cp lavo-chenin-blanc-tasting-notes.pdf $DEPLOYPATH
+    - /bin/cp lavo-chenin-blanc.png $DEPLOYPATH
+    - /bin/cp lavo-merlot-tasting-notes.pdf $DEPLOYPATH
+    - /bin/cp lavo-merlot.png $DEPLOYPATH
+    - /bin/cp lavo-sauv-blanc.png $DEPLOYPATH
+    - /bin/cp lavo-sauvignon-blanc-tasting-notes.pdf $DEPLOYPATH
+    - /bin/cp lavo-se-cab-sav.png $DEPLOYPATH
+    - /bin/cp lavo-se-pinotage.png $DEPLOYPATH
+    - /bin/cp lavo-sparkling-brut-tasting-notes.pdf $DEPLOYPATH
+    - /bin/cp lavo-wine-club-1.jpg $DEPLOYPATH
+    - /bin/cp lerato-lavo-wines.jpg $DEPLOYPATH
+    - /bin/cp logo-gold.png $DEPLOYPATH
+    - /bin/cp merlot-bottle.png $DEPLOYPATH
+    - /bin/cp merlot.html $DEPLOYPATH
+    - /bin/cp our-story.html $DEPLOYPATH
+    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp sauvignon-blanc-bottle.png $DEPLOYPATH
+    - /bin/cp sauvignon-blanc.html $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
+    - /bin/cp sparkling-brut.html $DEPLOYPATH
+    - /bin/cp story-hero.png $DEPLOYPATH
+    - /bin/cp the-farm.html $DEPLOYPATH
+    - /bin/cp welcome-lavo.png $DEPLOYPATH
+    - /bin/cp wine-club-connoisseur.png $DEPLOYPATH
+    - /bin/cp wine-club-exclusive.png $DEPLOYPATH
+    - /bin/cp wine-club-header.png $DEPLOYPATH
+    - /bin/cp wine-club-join.html $DEPLOYPATH
+    - /bin/cp wine-club.html $DEPLOYPATH
