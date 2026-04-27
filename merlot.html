@@ -153,10 +153,10 @@ section { padding: 100px 0; }
 
 .wine-image {
   position: relative; aspect-ratio: 3/4; overflow: hidden;
-  background: linear-gradient(155deg, var(--wine-a) 0%, var(--wine-mid) 45%, var(--wine-b) 100%);
+  background: var(--white);
 }
 .wine-image::after {
-  content: ''; position: absolute; inset: 16px;
+  content: ''; position: absolute; inset: 0;
   border: 1px solid rgba(184,151,90,0.18); pointer-events: none;
 }
 .wine-image-bottle {
@@ -166,10 +166,10 @@ section { padding: 100px 0; }
 }
 .wine-image:hover .wine-image-bottle { opacity: 0.32; transform: translateX(-50%) scale(1.04); }
 .wine-image-tag {
-  position: absolute; bottom: 22px; left: 22px;
+  position: absolute; top: 18px; left: 22px;
   font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500;
   letter-spacing: 0.26em; text-transform: uppercase;
-  color: rgba(255,255,255,0.28);
+  color: var(--gold);
 }
 
 .tasting-body { padding-top: 4px; }
