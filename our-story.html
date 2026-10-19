@@ -215,6 +215,32 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
+   DIRECTOR — mirrored two column (photo left, text right)
+============================================================ */
+.director { padding: 96px 0; background: var(--white); border-top: 1px solid var(--border); }
+.director-intro {
+  max-width: 1200px; margin: 0 auto 56px; padding: 0 40px;
+  display: flex; align-items: center; gap: 24px;
+}
+.director-intro .section-label { margin-bottom: 0; white-space: nowrap; }
+.director-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 440px 1fr; gap: 80px; align-items: center;
+}
+.director-photo { display: flex; flex-direction: column; }
+.director-text h2 {
+  font-size: clamp(30px, 3.6vw, 44px); color: var(--black); margin-bottom: 8px;
+}
+.director-role {
+  display: block; font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 28px;
+}
+.director-text p {
+  font-size: 14.5px; line-height: 1.95; color: var(--body-text); margin-bottom: 14px;
+}
+.director-quote { margin-top: 32px; }
+
+/* ============================================================
    VALUES
 ============================================================ */
 .values-section {
@@ -328,6 +354,9 @@ footer {
   .nav-toggle { display: flex; }
   .editorial-inner { grid-template-columns: 1fr; gap: 60px; }
   .founder-card { position: static; }
+  .director { padding: 72px 0; }
+  .director-inner { grid-template-columns: 1fr; gap: 40px; }
+  .director-photo { max-width: 440px; }
   .photo-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 200px 200px 200px;
@@ -342,7 +371,8 @@ footer {
 }
 @media (max-width: 520px) {
   .story-hero h1 { font-size: 52px; }
-  .editorial-inner, .photo-grid-header, .values-inner, .footer-inner { padding: 0 20px; }
+  .editorial-inner, .photo-grid-header, .values-inner, .footer-inner,
+  .director-inner, .director-intro { padding: 0 20px; }
   .editorial-left { padding-top: 0; }
   .photo-grid { padding: 0 20px; }
   .photo-grid {
@@ -401,6 +431,21 @@ footer {
     "@id": "https://www.lavowineandfood.com/#organization"
   },
   "url": "https://www.lavowineandfood.com/our-story.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.lavowineandfood.com/#lerato-martin",
+  "name": "Lerato Martin",
+  "jobTitle": "Director",
+  "description": "Lerato Martin is a Director of Lavo Wine and Food, bringing over 15 years of experience in finance, strategy and business leadership.",
+  "image": "https://www.lavowineandfood.com/lerato-martin-director.jpg",
+  "worksFor": {
+    "@id": "https://www.lavowineandfood.com/#organization"
+  },
+  "url": "https://www.lavowineandfood.com/our-story.html#director"
 }
 </script>
 </head>
@@ -556,6 +601,59 @@ footer {
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ================================================
+  DIRECTOR
+================================================ -->
+<section class="director" id="director">
+  <div class="director-intro reveal">
+    <span class="section-label">Meet Our Director</span>
+  </div>
+  <div class="director-inner">
+
+    <div class="director-photo">
+      <div class="founder-image-wrap reveal">
+        <img src="lerato-martin-director.jpg" alt="Lerato Martin, Director of Lavo Wine and Food" loading="lazy" />
+      </div>
+      <div class="founder-caption reveal d1">
+        <span class="founder-name">Lerato Martin</span>
+        <span class="founder-title">Director<br/>Lavo Wine &amp; Food</span>
+      </div>
+    </div>
+
+    <div class="director-text reveal d1">
+      <h2>Lerato Martin</h2>
+      <span class="director-role">Director · Lavo Wine &amp; Food</span>
+      <p>
+        With over 15 years of experience in finance, I began my professional journey
+        as a qualified finance professional before following my passion for
+        entrepreneurship and business development.
+      </p>
+      <p>
+        Over the years, I have had the privilege of venturing into and growing
+        businesses across different industries, gaining valuable experience in
+        finance, strategy and leadership along the way.
+      </p>
+      <p>
+        My journey into the wine industry is driven by a genuine appreciation for the
+        craft, the people and the opportunity to build something meaningful. I am
+        passionate about Lavo wine as a business that brings together quality,
+        authenticity and sound business principles, while creating lasting value for
+        our customers, partners and community.
+      </p>
+      <div class="founder-quote-block director-quote">
+        <span class="founder-quote-mark">&ldquo;</span>
+        <p class="founder-quote">
+          For me, this is more than simply a business. It is about creating a brand,
+          telling a story and building a legacy that can be enjoyed for generations to come.
+        </p>
+        <div class="founder-quote-rule"></div>
+        <span class="founder-attribution">The Director · Lavo Wine &amp; Food</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
