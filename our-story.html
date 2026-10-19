@@ -615,7 +615,13 @@ footer {
 
     <div class="director-photo">
       <div class="founder-image-wrap reveal">
-        <img src="lerato-martin-director.jpg" alt="Lerato Martin, Director of Lavo Wine and Food" loading="lazy" />
+        <picture>
+          <source type="image/webp"
+                  srcset="lerato-martin-director-440.webp 440w, lerato-martin-director.webp 880w"
+                  sizes="(max-width: 520px) calc(100vw - 40px), 440px" />
+          <img src="lerato-martin-director.jpg" width="880" height="1173"
+               alt="Lerato Martin, Director of Lavo Wine and Food" loading="lazy" decoding="async" />
+        </picture>
       </div>
       <div class="founder-caption reveal d1">
         <span class="founder-name">Lerato Martin</span>
